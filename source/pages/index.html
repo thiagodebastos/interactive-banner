@@ -1,0 +1,42 @@
+{% extends "layout.nunjucks" %}
+{% block config %}
+  <title>VHA0369_DIGITAL_ROAMING_NZ</title>
+  <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.18.0_499ba64a23378545748ff12d372e59e9_min.js"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+  <script src="{{dcStudio.enabler}}"></script>
+  <script src="{{dcStudio.script}}"></script>
+  <script src="//www.gstatic.com/external_hosted/polymer/custom.elements.min.js"></script>
+  <script src="//www.gstatic.com/ads/ci/ytclosebutton/1/ytclosebutton_min.js"></script>
+{% endblock %}
+
+{% block controls %}
+  <div id="animationControls"></div>
+{% endblock %}
+
+{% block banner %}
+<ci-ytclosebutton lang="en" theme="white" shadow="true" id="ytClose_dc"></ci-ytclosebutton>
+<div id="animation">
+  <span class="guide"></span>
+  <div class="rhombus"></div>
+
+  <img class="f1 f1_c1" src="./img/f1_c1.png">
+
+  <img class="f2 f2_c1" src="./img/f2_c1.png">
+
+  <img class="f3 f3_c1" src="./img/f3_c1.png">
+
+  <img class="vf_logo" src="./img/vf_logo.png">
+
+  <img class="f4 gs7 gs7_bg" src="./img/gs7_bg.jpg">
+  <img class="f4 gs7 gs7_logo" src="./img/gs7_logo.png">
+
+  <img class="f4 vf_tagline" src="./img/vf_tagline.png">
+  <img class="f4 vf_cta" src="./img/vf_cta.png">
+
+  <video id="video" width="970" height="250">
+    <source src="./img/video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+{% endblock %}
