@@ -16,27 +16,55 @@
 {% block banner %}
 <ci-ytclosebutton lang="en" theme="white" shadow="true" id="ytClose_dc"></ci-ytclosebutton>
 <div id="animation">
-  <span class="guide"></span>
-  <div class="rhombus"></div>
+  <span class="guide--h"></span>
 
-  <img class="f1 f1_c1" src="./img/f1_c1.png">
+  <div id="expanded"></div>
+  <div class="collapsed" id="collapsed">
+    <div class="objects">
+      <img src="img/mymix/coffee.png" class="coffee">
+      <img src="img/mymix/headphones.png" class="headphones">
+      <img src="img/mymix/ticket.png" class="ticket">
+      <img src="img/mymix/camera.png" class="camera">
+      <img src="img/mymix/bluetooth.png" class="bluetooth">
+      <img src="img/mymix/coins.png" class="coins">
+      <img src="img/mymix/passport.png" class="passport">
+      <img src="img/mymix/postcard.png" class="postcard">
+      <img src="img/mymix/popcorn.png" class="popcorn">
+      <img src="img/mymix/chopsticks_single.png" class="chopsticks_single--1">
+      <img src="img/mymix/chopsticks_single.png" class="chopsticks_single--2">
+      <img src="img/mymix/spoon.png" class="spoon">
+      <img src="img/mymix/popcorn.png" class="popcorn">
+      <img src="img/mymix/headphones.png" class="headphones">
+    </div>
 
-  <img class="f2 f2_c1" src="./img/f2_c1.png">
+    <div class="rhombus"></div>
 
-  <img class="f3 f3_c1" src="./img/f3_c1.png">
+    <div class="objects">
+      <img class="f1 f1_c1" src="img/collapsed/mm_pick.png">
+      <img class="f2 f2_c1" src="img/collapsed/mm_works.png">
+      <img class="f3 f3_c1" src="img/collapsed/mm_choose.png">
+      <img class="f4" src="img/mymix/mm_personal.png">
+      <img class="f4 vf_cta" src="./img/mymix/mm_cta.png">
+      <div class="pulses">
+        <div class="pulse data camera"></div>
+        <div class="pulse data headphones"></div>
+        <div class="pulse data popcorn"></div>
+
+        <div class="pulse international coins"></div>
+        <div class="pulse international chopsticks"></div>
+        <div class="pulse international passport"></div>
+        <div class="pulse international postcard"></div>
+        <div class="pulse international boardingpass"></div>
+        <div class="pulse calls"></div>
+      </div>
+    </div>
+  </div>
 
   <img class="vf_logo" src="./img/vf_logo.png">
+  <img src="img/background.jpg">
 
-  <img class="f4 gs7 gs7_bg" src="./img/gs7_bg.jpg">
-  <img class="f4 gs7 gs7_logo" src="./img/gs7_logo.png">
 
-  <img class="f4 vf_tagline" src="./img/vf_tagline.png">
-  <img class="f4 vf_cta" src="./img/vf_cta.png">
-
-  <video id="video" width="970" height="250">
-    <source src="./img/video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 </div>
+
 
 {% endblock %}

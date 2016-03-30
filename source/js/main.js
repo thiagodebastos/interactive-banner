@@ -21,18 +21,8 @@ const animation = () => {
     ControlModule(tl);
   const timeBetweenFrames = "+=3";
 
-  const vid = document.getElementById("video");
-  function playVid() {
-    vid.play();
-  }
-  function pauseVid() {
-    vid.pause();
-    console.log("video paused");
-  }
-  playVid();
-
   tl.addLabel("frame01")
-  .set(".rhombus", {opacity: 0.9, top:97, left:613, borderRadius: 26})
+  // .set(".rhombus", {opacity: 0.9, top:97, left:613, borderRadius: 26})
   .to(".rhombus", 0.5, {
     ease: Power1.easeInOut,
     boxShadow:"0px 0px 10px 10px #E30613",
@@ -64,8 +54,8 @@ const animation = () => {
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-  // tl.seek("frame05")
-  // .pause();
+  tl.seek("frame01")
+  .pause();
 
 
 }

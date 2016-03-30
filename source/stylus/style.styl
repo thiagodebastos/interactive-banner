@@ -5,13 +5,16 @@ banner_width = 970px
 banner_height = 250px
 banner_border = rgb(0, 0, 0) 1px solid
 banner_bg = white
+vfred = #E30613
 
 /* *************
 CUSTOM STYLES
 **************** */
+guide_top = 20px
+guide_left = 713px
 @import 'utilities/utilities'
 @import 'utilities/banner_defaults'
-
+@import 'components/objects'
 
 /* *************
 TESTING
@@ -32,35 +35,18 @@ TESTING
     height 30px
     background-color white
 
-/* *************
-CUSTOM STYLES
-**************** */
-guide_top = 20px
-guide_left = 713px
-// .guide
-//   position absolute
-//   width 100%
-//   border-top 1px solid cyan
-//   top 125px
-//   z-index 1000
-// .guide
-//   position absolute
-//   height 100%
-//   border-left 1px solid cyan
-//   left 613px
-//   z-index 1000
-//   display none
 .rhombus
   position absolute
   width 900px
   height 805px
-  z-index 9
+  left -882px
+  top -162px
+  border-radius 26px
   transform rotate(-45deg)
-  opacity 0
-  background-color #E30613
-
-// #ad img
-//   position absolute
+  background-color vfred
+  background-blend-mode multiply
+  opacity 0.5
+  z-index 9
 
 .f1, .f2, .f3, .f4, .f5, .f6
   opacity 0
@@ -69,38 +55,37 @@ guide_left = 713px
 
 //  FRAME 01
 .vf_logo
-  opacity 0
-  top 50%
-  left 610px
-  transform translate(0, -50%)
+  top 183px
+  left 116px
   z-index 20
 
-.f1_c1
-  z-index 10
-  left guide_left
-  top 50%
-  transform translate(0, -50%)
+.expanded
+  .f1_c1
+    z-index 10
+    left guide_left
+    top 50%
+    transform translate(0, -50%)
 
-//  FRAME 02
-.f2_c1
-  z-index 10
-  left guide_left
-  top 50%
-  transform translate(0, -50%)
-//  FRAME 03
+  //  FRAME 02
+  .f2_c1
+    z-index 10
+    left guide_left
+    top 50%
+    transform translate(0, -50%)
+  //  FRAME 03
 
-.f3_c1
-  z-index 10
-  left guide_left
-  top 50%
-  transform translate(0, -50%)
+  .f3_c1
+    z-index 10
+    left guide_left
+    top 50%
+    transform translate(0, -50%)
 
-//  FRAME 04
-.f4_c1
-  z-index 10
-  left guide_left
-  top 50%
-  transform translate(0, -50%)
+  //  FRAME 04
+  .f4_c1
+    z-index 10
+    left guide_left
+    top 50%
+    transform translate(0, -50%)
 
 //  FRAME 05
 .vf_tagline
@@ -116,17 +101,16 @@ guide_left = 713px
   opacity 0
   z-index 10
 
- .gs7_logo
-   left 30px
-   top 47px
-   z-index 10
-
- .gs7_bg
-   left 53px
-   z-index 1
 
 #ytClose_dc
   z-index 999
   position absolute !important
   top 7px !important
   right 7px !important
+
+
+
+.collapsed
+  .f1_c1
+    left 50%
+    z-index 10
