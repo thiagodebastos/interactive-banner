@@ -31,8 +31,8 @@ const animation = () => {
   .from('.postcard', 0.5, {x:150, y:100, rotation:-45}, "collapsed_frame01")
   .from('.camera', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
   .from('.chopsticks_single--1', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
-  .from('.chopsticks_single--2', 0.5, {y:150, rotation:-45}, "collapsed_frame01+=0.25")
-  .from('.spoon', 0.5, {y:150, rotation:-45}, "collapsed_frame01+=0.25")
+  .from('.chopsticks_single--2', 0.5, {y:150, rotation:-65}, "collapsed_frame01")
+  .from('.spoon', 0.5, {y:150, rotation:75}, "collapsed_frame01")
 
   .to(".collapsed.rhombus", 0.5, {
     ease: Power1.easeInOut,
@@ -46,11 +46,11 @@ const animation = () => {
   .to('.collapsed .f1_c1', 0.5, {opacity: 1})
   .to('.collapsed .f1_c1', 0.5, {opacity: 0}, timeBetweenFrames)
 
-  // phone slides up
   .addLabel("collapsed_frame02")
   .to('.collapsed .f2_c1', 0.5, {opacity: 1})
-  .to(".phone", 0.5, {top: -5})
 
+  // phone slides up
+  .to(".phone", 0.5, {top: -5}, "+=0.5")
   .to(".phone .rhombus", 0.5, {
     ease: Power1.easeInOut,
     opacity: 1,
@@ -58,17 +58,22 @@ const animation = () => {
     rotation: "+=450deg",
   })
   .to('.phone .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
-  .to('.phone .mask', 0.5, {backgroundColor: '#E30613'})
-  .to('.phone .vf_logo', 0.25, {opacity: 0})
-  .to('.phone .mm_print', 0.25, {opacity: 1})
+  .to('.phone .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
+  .to('.phone .vf_logo', 0.25, {opacity: 0}, "+=0.5")
+  .to('.phone .mm_print', 0.25, {opacity: 1}, "+=0.5")
+  .to('.phone .mask .mm_results', 0.5, {opacity: 1}, "+=1")
+
   .to('.collapsed .f2_c1', 0.5, {opacity: 0})
 
   .addLabel("collapsed_frame03")
   .to('.collapsed .f3_c1', 0.5, {opacity: 1})
   .to('.will-zoom', 0.5, {scale: 1.25, x: -90, y:-5})
-  .to('.collapsed .f3_c1', 0.5, {opacity: 0})
+  .to('.collapsed .f3_c1', 0.5, {opacity: 0}, "+=2")
   // TODO: add frame wipe
-.to('.collapsed>.rhombus', 0.5, {backgroundColor: 'white'})
+  .addLabel('collapsed_frame03_a')
+  .to('.collapsed>.rhombus', 0.5, {backgroundColor: 'white'})
+  .to('.vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'collapsed_frame03_a')
+  .to('.vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'collapsed_frame03_a')
   .to('.will-zoom .mask', 0.5, {opacity: 1})
   .to('.collapsed .mm_personal', 0.5, {opacity: 1})
   .to('.collapsed .mm_cta', 0.5, {opacity: 1})
@@ -79,7 +84,7 @@ const animation = () => {
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-  // tl.seek("collapsed_frame03")
+  // tl.seek("collapsed_frame02")
   // .pause();
 
 
