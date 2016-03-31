@@ -20,10 +20,11 @@
   "author": "Thiago de Bastos",
   "license": "MIT",
   "devDependencies": {
-    "babel-eslint": "^5.0.0",
+    "babel-eslint": "^5.0.2",
     "babel-preset-es2015": "^6.5.0",
     "browser-sync": "^2.9.7",
     "del": "^2.0.2",
+    "eslint": "^2.5.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-babel": "^6.1.2",

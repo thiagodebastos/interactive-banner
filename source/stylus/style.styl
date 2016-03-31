@@ -12,52 +12,53 @@ CUSTOM STYLES
 **************** */
 guide_top = 20px
 guide_left = 713px
+
+// .f1, .f2, .f3, .f4, .f5, .f6
+//   opacity 0
+.f1, .f2, .f3, .f4, .f5, .f6, .vf_logo
+  position absolute
+.expanded
+  opacity 0
+
 @import 'utilities/utilities'
 @import 'utilities/banner_defaults'
 @import 'components/objects'
 
-/* *************
-TESTING
-**************** */
 
-#animationControls
-  position relative
-  top banner_height
-  width banner_width
-  height 30px
-  background white
-  z-index 10000
-  text-align center
-  button
-    position relative
-    border none
-    width 55px
-    height 30px
-    background-color white
+// .rhombus
+//   position absolute
+//   width 900px
+//   height 805px
+//   left -882px
+//   top -162px
+//   border-radius 26px
+//   transform rotate(-45deg)
+//   background-color vfred
+//   mix-blend-mode multiply
+//   z-index 9
 
-.rhombus
-  position absolute
-  width 900px
-  height 805px
-  left -882px
-  top -162px
-  border-radius 26px
-  transform rotate(-45deg)
-  background-color vfred
-  background-blend-mode multiply
-  opacity 0.5
-  z-index 9
 
-.f1, .f2, .f3, .f4, .f5, .f6
-  opacity 0
-.f1, .f2, .f3, .f4, .f5, .f6, .vf_logo
-  position absolute
+.copy
+  & img
+    position absolute
+    opacity 0
+    z-index 10
+    top 50%
+    transform translate(0, -50%)
+
+.collapsed
+  & .f1_c1
+    left 50%
+    transform translate(-50%, -50%)
+  & .f2_c1
+    left 165px
 
 //  FRAME 01
-.vf_logo
-  top 183px
-  left 116px
-  z-index 20
+.collapsed
+  & > .vf_logo
+    top 183px
+    left 116px
+    z-index 20
 
 .expanded
   .f1_c1
@@ -107,10 +108,3 @@ TESTING
   position absolute !important
   top 7px !important
   right 7px !important
-
-
-
-.collapsed
-  .f1_c1
-    left 50%
-    z-index 10
