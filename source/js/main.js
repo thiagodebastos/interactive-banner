@@ -22,7 +22,18 @@ const animation = () => {
   const timeBetweenFrames = "+=2";
 
   tl.addLabel("collapsed_frame01")
-  // .set(".rhombus", {opacity: 0.9, top:97, left:613, borderRadius: 26})
+
+  // pop all objects into frame
+  .set('.objects', {opacity: 1})
+  .from('.headphones, .passport, .popcorn, .ticket, .coins', 0.5, {y:-150, rotation:-45}, "collapsed_frame01")
+  .from('.coffee', 0.5, {x:-150, rotation:-45}, "collapsed_frame01")
+  .from('.bluetooth', 0.5, {x:150, rotation:-45}, "collapsed_frame01")
+  .from('.postcard', 0.5, {x:150, y:100, rotation:-45}, "collapsed_frame01")
+  .from('.camera', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
+  .from('.chopsticks_single--1', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
+  .from('.chopsticks_single--2', 0.5, {y:150, rotation:-45}, "collapsed_frame01+=0.25")
+  .from('.spoon', 0.5, {y:150, rotation:-45}, "collapsed_frame01+=0.25")
+
   .to(".collapsed.rhombus", 0.5, {
     ease: Power1.easeInOut,
     boxShadow:"0px 0px 10px 10px #E30613",
@@ -68,7 +79,7 @@ const animation = () => {
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-  tl.seek("collapsed_frame03")
+  // tl.seek("collapsed_frame03")
   // .pause();
 
 
