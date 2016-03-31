@@ -42,18 +42,28 @@ const animation = () => {
 
   .to(".phone .rhombus", 0.5, {
     ease: Power1.easeInOut,
+    opacity: 1,
     boxShadow:"0px 0px 5px 5px #E30613",
-    rotation: "+=360deg",
-    transformOrigin: "-20px -20px",
+    rotation: "+=450deg",
   })
+  .to('.phone .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+  .to('.phone .mask', 0.5, {backgroundColor: '#E30613'})
+  .to('.phone .vf_logo', 0.25, {opacity: 0})
+  .to('.phone .mm_print', 0.25, {opacity: 1})
+  .to('.collapsed .f2_c1', 0.5, {opacity: 0})
+
+  .addLabel("collapsed_frame03")
+  .to('.collapsed .f3_c1', 0.5, {opacity: 1})
+  .to('.collapsed', 0.5, {scale: 1.2, x: -50})
+
 
   .addLabel("endFrame")
 
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-  tl.seek("collapsed_frame02+=1")
-  .pause();
+  tl.seek("collapsed_frame02")
+  // .pause();
 
 
 }

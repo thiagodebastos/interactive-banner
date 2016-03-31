@@ -10,11 +10,7 @@ vfred = #E30613
 /* *************
 CUSTOM STYLES
 **************** */
-guide_top = 20px
-guide_left = 713px
 
-// .f1, .f2, .f3, .f4, .f5, .f6
-//   opacity 0
 .f1, .f2, .f3, .f4, .f5, .f6, .vf_logo
   position absolute
 .expanded
@@ -37,7 +33,6 @@ guide_left = 713px
 //   mix-blend-mode multiply
 //   z-index 9
 
-
 .copy
   & img
     position absolute
@@ -47,14 +42,18 @@ guide_left = 713px
     transform translate(0, -50%)
 
 .collapsed
+  position absolute
+  width 970px
+  height 250px
   & .f1_c1
     left 50%
     transform translate(-50%, -50%)
+
   & .f2_c1
     left 165px
+  & .f3_c1
+    left 250px
 
-//  FRAME 01
-.collapsed
   & > .vf_logo
     top 183px
     left 116px
