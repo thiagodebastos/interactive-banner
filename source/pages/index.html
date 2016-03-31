@@ -1,19 +1,14 @@
-{% extends "layout.nunjucks" %}
-{% block config %}
-  <title>VHA0369_DIGITAL_ROAMING_NZ</title>
-  <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.18.0_499ba64a23378545748ff12d372e59e9_min.js"></script>
-  <script src="js/main.js" type="text/javascript"></script>
-  <script src="{{dcStudio.enabler}}"></script>
-  <script src="{{dcStudio.script}}"></script>
-  <script src="//www.gstatic.com/external_hosted/polymer/custom.elements.min.js"></script>
-  <script src="//www.gstatic.com/ads/ci/ytclosebutton/1/ytclosebutton_min.js"></script>
-{% endblock %}
-
-{% block controls %}
-  <div id="animationControls"></div>
-{% endblock %}
-
-{% block banner %}
+{% extends "layout.nunjucks" %} {% block config %}
+<title>VHA0369_DIGITAL_ROAMING_NZ</title>
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.18.0_499ba64a23378545748ff12d372e59e9_min.js"></script>
+<script src="js/main.js" type="text/javascript"></script>
+<script src="{{dcStudio.enabler}}"></script>
+<script src="{{dcStudio.script}}"></script>
+<script src="//www.gstatic.com/external_hosted/polymer/custom.elements.min.js"></script>
+<script src="//www.gstatic.com/ads/ci/ytclosebutton/1/ytclosebutton_min.js"></script>
+{% endblock %} {% block controls %}
+<div id="animationControls"></div>
+{% endblock %} {% block banner %}
 <ci-ytclosebutton lang="en" theme="white" shadow="true" id="ytClose_dc"></ci-ytclosebutton>
 <div id="animation">
   <span class="guide--h"></span>
@@ -22,45 +17,51 @@
   <div id="expanded"></div>
 
   <div class="collapsed" id="collapsed">
+    <div class="rhombus"></div>
 
     <div class="copy">
       <img class="f1_c1" src="img/collapsed/mm_pick.png">
       <img class="f2_c1" src="img/collapsed/mm_works.png">
       <img class="f3_c1" src="img/collapsed/mm_choose.png">
-      <img class="f4" src="img/mymix/mm_personal.png">
+      <img class="mm_personal" src="img/mymix/mm_personal.png">
+      <img class="mm_cta" src="./img/mymix/mm_cta.png">
     </div>
-
-    <img class="f4 vf_cta" src="./img/mymix/mm_cta.png">
     <img class="vf_logo" src="./img/vf_logo.png">
 
-    <div class="objects">
-      <img class="coffee" src="img/mymix/coffee.png">
-      <img class="headphones" src="img/mymix/headphones.png">
-      <img class="ticket" src="img/mymix/ticket.png">
-      <img class="camera" src="img/mymix/camera.png">
-      <img class="bluetooth" src="img/mymix/bluetooth.png">
-      <img class="coins" src="img/mymix/coins.png">
-      <img class="passport" src="img/mymix/passport.png">
-      <img class="postcard" src="img/mymix/postcard.png">
-      <img class="popcorn" src="img/mymix/popcorn.png">
-      <img class="chopsticks_single--1" src="img/mymix/chopsticks_single.png">
-      <img class="chopsticks_single--2" src="img/mymix/chopsticks_single.png">
-      <img class="spoon" src="img/mymix/spoon.png">
-      <img class="popcorn" src="img/mymix/popcorn.png">
-      <img class="headphones" src="img/mymix/headphones.png">
+    <!-- NOTE: All objects in here will zoom in -->
+    <div class="will-zoom">
+      <div class="mask"></div>
 
-      <div id="phone" class="phone">
-        <img src="img/mymix/mm_phone.png">
-        <div class="mask">
-          <img class="vf_logo" src="./img/vf_logo.png">
-          <div class="rhombus"></div>
+      <div class="objects">
+        <img class="coffee" src="img/mymix/coffee.png">
+        <img class="headphones" src="img/mymix/headphones.png">
+        <img class="ticket" src="img/mymix/ticket.png">
+        <img class="camera" src="img/mymix/camera.png">
+        <img class="bluetooth" src="img/mymix/bluetooth.png">
+        <img class="coins" src="img/mymix/coins.png">
+        <img class="passport" src="img/mymix/passport.png">
+        <img class="postcard" src="img/mymix/postcard.png">
+        <img class="popcorn" src="img/mymix/popcorn.png">
+        <img class="chopsticks_single--1" src="img/mymix/chopsticks_single.png">
+        <img class="chopsticks_single--2" src="img/mymix/chopsticks_single.png">
+        <img class="spoon" src="img/mymix/spoon.png">
+        <img class="popcorn" src="img/mymix/popcorn.png">
+        <img class="headphones" src="img/mymix/headphones.png">
+
+        <div id="phone" class="phone">
+          <img src="img/mymix/mm_phone.png">
+          <div class="mask">
+            <img class="vf_logo" src="./img/vf_logo.png">
+            <img class="mm_print" src="./img/mymix/mm_print.png">
+            <div class="rhombus"></div>
+          </div>
         </div>
+
+
       </div>
-
-
     </div>
 
-    <div class="rhombus"></div>
+
 
     <div class="pulses">
       <div class="pulse data camera"></div>

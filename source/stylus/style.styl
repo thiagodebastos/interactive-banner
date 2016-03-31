@@ -20,19 +20,6 @@ CUSTOM STYLES
 @import 'utilities/banner_defaults'
 @import 'components/objects'
 
-
-// .rhombus
-//   position absolute
-//   width 900px
-//   height 805px
-//   left -882px
-//   top -162px
-//   border-radius 26px
-//   transform rotate(-45deg)
-//   background-color vfred
-//   mix-blend-mode multiply
-//   z-index 9
-
 .copy
   & img
     position absolute
@@ -40,11 +27,36 @@ CUSTOM STYLES
     z-index 10
     top 50%
     transform translate(0, -50%)
+.will-zoom
+  position absolute
+  width 100%
+  height 100%
+  & > .mask
+    position absolute
+    width 100%
+    height 100%
+    background vfred
+    mix-blend-mode multiply
+    opacity 0
+    z-index 10
 
 .collapsed
   position absolute
   width 970px
   height 250px
+
+  & > .rhombus
+    position absolute
+    width 900px
+    height 805px
+    left -882px
+    top -162px
+    border-radius 26px
+    transform rotate(-45deg)
+    background-color vfred
+    // mix-blend-mode multiply
+    z-index 9
+
   & .f1_c1
     left 50%
     transform translate(-50%, -50%)
@@ -58,49 +70,11 @@ CUSTOM STYLES
     top 183px
     left 116px
     z-index 20
-
-.expanded
-  .f1_c1
-    z-index 10
-    left guide_left
-    top 50%
-    transform translate(0, -50%)
-
-  //  FRAME 02
-  .f2_c1
-    z-index 10
-    left guide_left
-    top 50%
-    transform translate(0, -50%)
-  //  FRAME 03
-
-  .f3_c1
-    z-index 10
-    left guide_left
-    top 50%
-    transform translate(0, -50%)
-
-  //  FRAME 04
-  .f4_c1
-    z-index 10
-    left guide_left
-    top 50%
-    transform translate(0, -50%)
-
-//  FRAME 05
-.vf_tagline
-  z-index 10
-  left 710px
-  top 161px
-  opacity 0
-
-.vf_cta
-  left 710px
-  top 50%
-  transform translate(0, -50%)
-  opacity 0
-  z-index 10
-
+// FRAME 4
+  & .mm_personal
+    left 190px
+  & .mm_cta
+    left 455px
 
 #ytClose_dc
   z-index 999

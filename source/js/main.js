@@ -54,7 +54,13 @@ const animation = () => {
 
   .addLabel("collapsed_frame03")
   .to('.collapsed .f3_c1', 0.5, {opacity: 1})
-  .to('.collapsed', 0.5, {scale: 1.2, x: -50})
+  .to('.will-zoom', 0.5, {scale: 1.25, x: -90, y:-5})
+  .to('.collapsed .f3_c1', 0.5, {opacity: 0})
+  // TODO: add frame wipe
+.to('.collapsed>.rhombus', 0.5, {backgroundColor: 'white'})
+  .to('.will-zoom .mask', 0.5, {opacity: 1})
+  .to('.collapsed .mm_personal', 0.5, {opacity: 1})
+  .to('.collapsed .mm_cta', 0.5, {opacity: 1})
 
 
   .addLabel("endFrame")
@@ -62,7 +68,7 @@ const animation = () => {
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-  tl.seek("collapsed_frame02")
+  tl.seek("collapsed_frame03")
   // .pause();
 
 
