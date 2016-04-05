@@ -71,7 +71,7 @@ const animation = () => {
   .to('.collapsed .f3_c1', 0.5, {opacity: 0}, "+=2")
   // TODO: add frame wipe
   .addLabel('collapsed_frame03_a')
-  .to('.collapsed>.rhombus', 0.5, {backgroundColor: 'white'})
+  .to('.feature-collapsed>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
   .to('.vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'collapsed_frame03_a')
   .to('.vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'collapsed_frame03_a')
   .to('.will-zoom .mask', 0.5, {opacity: 1})
@@ -84,8 +84,8 @@ const animation = () => {
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-  // tl.seek("collapsed_frame02")
-  // .pause();
+  tl.seek("endFrame")
+  .pause();
 
 
 }
