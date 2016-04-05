@@ -4,6 +4,8 @@ function ControlModule (tl) {
   const animationControls = document.getElementById("animationControls");
   const btnTypes = ['play', 'pause', 'resume', 'reverse', 'restart'];
   const btns = btnTypes.map(createBtn);
+  const expBtn = document.getElementById("expand-button");
+  const colBtn = document.getElementById("collapse-button");
 
   // function to be mapped to btns array
   function createBtn(btnTxt){
@@ -20,6 +22,9 @@ function ControlModule (tl) {
   listen(resume_btn, resumeHandler);
   listen(reverse_btn, reverseHandler);
   listen(restart_btn, restartHandler);
+  listen(expBtn, pauseHandler);
+  listen(colBtn, resumeHandler);
+
 
   // control timeline with all the buttons
   function playHandler(){ tl.play();}
