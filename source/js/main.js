@@ -25,14 +25,14 @@ const animation = () => {
 
   // pop all objects into frame
   .set('.objects', {opacity: 1})
-  .from('.headphones, .passport, .popcorn, .ticket, .coins', 0.5, {y:-150, rotation:-45}, "collapsed_frame01")
-  .from('.coffee', 0.5, {x:-150, rotation:-45}, "collapsed_frame01")
-  .from('.bluetooth', 0.5, {x:150, rotation:-45}, "collapsed_frame01")
-  .from('.postcard', 0.5, {x:150, y:100, rotation:-45}, "collapsed_frame01")
-  .from('.camera', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
-  .from('.chopsticks_single--1', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
-  .from('.chopsticks_single--2', 0.5, {y:150, rotation:-65}, "collapsed_frame01")
-  .from('.spoon', 0.5, {y:150, rotation:75}, "collapsed_frame01")
+  .from('.feature-collapsed .headphones, .passport, .popcorn, .ticket, .coins', 0.5, {y:-150, rotation:-45}, "collapsed_frame01")
+  .from('.feature-collapsed .coffee', 0.5, {x:-150, rotation:-45}, "collapsed_frame01")
+  .from('.feature-collapsed .bluetooth', 0.5, {x:150, rotation:-45}, "collapsed_frame01")
+  .from('.feature-collapsed .postcard', 0.5, {x:150, y:100, rotation:-45}, "collapsed_frame01")
+  .from('.feature-collapsed .camera', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
+  .from('.feature-collapsed .chopsticks_single--1', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
+  .from('.feature-collapsed .chopsticks_single--2', 0.5, {y:150, rotation:-65}, "collapsed_frame01")
+  .from('.feature-collapsed .spoon', 0.5, {y:150, rotation:75}, "collapsed_frame01")
 
   .to(".collapsed.rhombus", 0.5, {
     ease: Power1.easeInOut,
