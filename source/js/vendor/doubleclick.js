@@ -95,7 +95,6 @@ function expandStartHandler() {
   creative.dom.collapsedContent.style.display = 'none';
   creative.dom.collapsedExit.style.display = 'none';
   creative.dom.expandButton.style.display = 'none';
-
   Enabler.finishExpand();
 }
 

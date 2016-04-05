@@ -50,18 +50,18 @@ const animation = () => {
   .to('.collapsed .f2_c1', 0.5, {opacity: 1})
 
   // phone slides up
-  .to(".phone", 0.5, {top: -5}, "+=0.5")
-  .to(".phone .rhombus", 0.5, {
+  .to(".phone-collapsed", 0.5, {top: -5}, "+=0.5")
+  .to(".phone-collapsed .rhombus", 0.5, {
     ease: Power1.easeInOut,
     opacity: 1,
     boxShadow:"0px 0px 5px 5px #E30613",
     rotation: "+=450deg",
   })
-  .to('.phone .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
-  .to('.phone .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
-  .to('.phone .vf_logo', 0.25, {opacity: 0}, "+=0.5")
-  .to('.phone .mm_print', 0.25, {opacity: 1}, "+=0.5")
-  .to('.phone .mask .mm_results', 0.5, {opacity: 1}, "+=1")
+  .to('.phone-collapsed .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+  .to('.phone-collapsed .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
+  .to('.phone-collapsed .vf_logo', 0.25, {opacity: 0}, "+=0.5")
+  .to('.phone-collapsed .mm_print', 0.25, {opacity: 1}, "+=0.5")
+  .to('.phone-collapsed .mask .mm_results', 0.5, {opacity: 1}, "+=1")
 
   .to('.collapsed .f2_c1', 0.5, {opacity: 0})
 
@@ -84,8 +84,8 @@ const animation = () => {
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-  tl.seek("endFrame")
-  .pause();
+  // tl.seek("endFrame")
+  // .pause();
 
 
 }

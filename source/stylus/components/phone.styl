@@ -1,9 +1,6 @@
-.phone
+div[class^='phone']
   position absolute
-  top 300px
-  left 730px
   z-index 10
-  transform scale(0.68) rotate(5deg)
   & > .mask
     position absolute
     top 46px
@@ -13,6 +10,11 @@
     overflow hidden
     background-color #d8d8d8
     z-index 11
+.phone-collapsed
+  top 300px
+  left 730px
+  transform scale(0.68) rotate(5deg)
+  z-index 10
   & .vf_logo
     top 40px
     left 60px
@@ -30,7 +32,6 @@
     width 101%
     opacity 0
     z-index 15
-
   & .rhombus
     position absolute
     top 47px
