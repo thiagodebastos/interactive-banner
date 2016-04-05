@@ -68,6 +68,7 @@ gulp.task('serve', ['build'], () => {
     server: {
        baseDir: './build'
     },
+    open: false,
     notify: false
   });
 
