@@ -49,7 +49,7 @@ function handleError(err) {
   this.emit('end');
 }
 
-var AUTOPREFIXER_BROWSERS = [
+const AUTOPREFIXER_BROWSERS = [
   'ie >= 12',
   'ie_mob >= 10',
   'ff >= 30',
@@ -58,7 +58,7 @@ var AUTOPREFIXER_BROWSERS = [
   'opera >= 23',
   'ios >= 7',
   'android >= 4.4',
-  'bb >= 10'
+  'bb >= 10',
 ];
 
 // Static Server + watching stylus/html/js/image files
@@ -66,10 +66,10 @@ gulp.task('serve', ['build'], () => {
 
   browserSync({
     server: {
-       baseDir: './build'
+       baseDir: './build',
     },
     open: false,
-    notify: false
+    notify: false,
   });
 
   gulp.watch("source/img/**/*", ['images'], browserSync.reload);
@@ -87,7 +87,7 @@ gulp.task('css', () => {
     .pipe(newer(cssDest))
     .pipe(stylus({
       compress: true,
-      paths: ['source/stylus']
+      paths: ['source/stylus'],
     }))
     .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(rename('master.css'))
@@ -120,11 +120,11 @@ gulp.task('images', () => {
       interlaced: true,
       multipass: true,
       svgoPlugins: [{ removeViewBox: false }],
-      use: [pngquant(), jpegtran(), gifsicle()]
+      use: [pngquant(), jpegtran(), gifsicle()],
     }))
     .pipe(gulp.dest(imgDest))
     .pipe(size({
-      title: 'images'
+      title: 'images',
     }));
 });
 
@@ -134,7 +134,7 @@ gulp.task('scripts-vendor', () => {
     .pipe(newer(jsVendorDest))
     .pipe(gulp.dest(jsVendorDest))
     .pipe(browserSync.reload({
-      stream: true
+      stream: true,
     }));
 });
 
@@ -151,7 +151,7 @@ gulp.task('nunjucks', () => {
     .pipe(nunjucksRender())
     .pipe(gulp.dest('build'))
     .pipe(browserSync.reload({
-      stream: true
+      stream: true,
     }));
 });
 
@@ -160,7 +160,7 @@ gulp.task('nunjucks', () => {
 // });
 
 gulp.task('clean', del.bind(null, 'build/*', {
-  dot: true
+  dot: true,
 }));
 
 gulp.task('build', (callback) => {
