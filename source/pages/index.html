@@ -10,13 +10,18 @@
 <div id="animationControls"></div>
 {% endblock %} {% block banner %}
 <ci-ytclosebutton lang="en" theme="white" shadow="true" id="ytClose_dc"></ci-ytclosebutton>
+
 <div id="animation">
     <span class="guide--h"></span>
     <span class="guide--v"></span>
 
-    <div id="expanded"></div>
 
-    <div class="collapsed" id="collapsed">
+    <div class="collapsed" id="collapsed-content">
+      <div id="collapsed-exit"></div>
+      <div class="feature-collapsed" id="feature-collapsed">
+        <div id="expand-button" class="button">
+          Click To Expand
+        </div>
         <div class="rhombus"></div>
 
         <div class="copy">
@@ -31,72 +36,69 @@
             <img src="./img/vf_tagline.png">
             <img src="./img/vf_tagline--red.png">
         </div>
-        <div class="collapsed-content">
-            <div id="expand-button" class="button">
-                Click To Expand
-            </div>
-            <!-- NOTE: All objects in here will zoom in -->
-            <div class="will-zoom">
-                <div class="mask"></div>
 
-                <div class="objects">
-                    <img class="coffee" src="img/mymix/coffee.png">
-                    <img class="headphones" src="img/mymix/headphones.png">
-                    <img class="ticket" src="img/mymix/ticket.png">
-                    <img class="camera" src="img/mymix/camera.png">
-                    <img class="bluetooth" src="img/mymix/bluetooth.png">
-                    <img class="coins" src="img/mymix/coins.png">
-                    <img class="passport" src="img/mymix/passport.png">
-                    <img class="postcard" src="img/mymix/postcard.png">
-                    <img class="popcorn" src="img/mymix/popcorn.png">
-                    <img class="chopsticks_single--1" src="img/mymix/chopsticks_single.png">
-                    <img class="chopsticks_single--2" src="img/mymix/chopsticks_single.png">
-                    <img class="spoon" src="img/mymix/spoon.png">
-                    <img class="popcorn" src="img/mymix/popcorn.png">
-                    <img class="headphones" src="img/mymix/headphones.png">
+        <!-- NOTE: All objects in here will zoom in -->
+        <div class="will-zoom">
+            <div class="mask"></div>
 
-                    <div id="phone" class="phone">
-                        <img src="img/mymix/mm_phone.png">
-                        <div class="mask">
-                            <img class="vf_logo" src="./img/vf_logo.png">
-                            <img class="mm_print" src="./img/mymix/mm_print.png">
-                            <div class="rhombus"></div>
-                            <img class="mm_results" src="./img/mymix/mm_results.png">
-                        </div>
+            <div class="objects">
+                <img class="coffee" src="img/mymix/coffee.png">
+                <img class="headphones" src="img/mymix/headphones.png">
+                <img class="ticket" src="img/mymix/ticket.png">
+                <img class="camera" src="img/mymix/camera.png">
+                <img class="bluetooth" src="img/mymix/bluetooth.png">
+                <img class="coins" src="img/mymix/coins.png">
+                <img class="passport" src="img/mymix/passport.png">
+                <img class="postcard" src="img/mymix/postcard.png">
+                <img class="popcorn" src="img/mymix/popcorn.png">
+                <img class="chopsticks_single--1" src="img/mymix/chopsticks_single.png">
+                <img class="chopsticks_single--2" src="img/mymix/chopsticks_single.png">
+                <img class="spoon" src="img/mymix/spoon.png">
+                <img class="popcorn" src="img/mymix/popcorn.png">
+                <img class="headphones" src="img/mymix/headphones.png">
+
+                <div id="phone" class="phone">
+                    <img src="img/mymix/mm_phone.png">
+                    <div class="mask">
+                        <img class="vf_logo" src="./img/vf_logo.png">
+                        <img class="mm_print" src="./img/mymix/mm_print.png">
+                        <div class="rhombus"></div>
+                        <img class="mm_results" src="./img/mymix/mm_results.png">
                     </div>
-
-
                 </div>
-            </div>
 
 
-
-            <div class="pulses">
-                <div class="pulse data camera"></div>
-                <div class="pulse data headphones"></div>
-                <div class="pulse data popcorn"></div>
-
-                <div class="pulse international coins"></div>
-                <div class="pulse international chopsticks"></div>
-                <div class="pulse international passport"></div>
-                <div class="pulse international postcard"></div>
-                <div class="pulse international boardingpass"></div>
-                <div class="pulse calls"></div>
             </div>
         </div>
 
-    </div>
 
-    <div id="expanded-content">
-      <div id="expanded-exit"></div>
-      <div id="collapse-button">X Close Expanded</div>
-      <div class="feature-expanded" id="feature-expanded">
-        <div id="main-img-1"></div>
+
+        <div class="pulses">
+            <div class="pulse data camera"></div>
+            <div class="pulse data headphones"></div>
+            <div class="pulse data popcorn"></div>
+
+            <div class="pulse international coins"></div>
+            <div class="pulse international chopsticks"></div>
+            <div class="pulse international passport"></div>
+            <div class="pulse international postcard"></div>
+            <div class="pulse international boardingpass"></div>
+            <div class="pulse calls"></div>
+        </div>
+
       </div>
     </div>
 
+    <div id="expanded-content">
+        <div id="expanded-exit"></div>
+        <div id="collapse-button" class="button">X Close Expanded</div>
+        <div class="feature-expanded" id="feature-expanded">
+            <div id="main-img-1"></div>
+        </div>
+    </div>
 
-    <img src="img/background.jpg">
+
+
 
 
 </div>

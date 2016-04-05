@@ -13,11 +13,10 @@ CUSTOM STYLES
 
 .f1, .f2, .f3, .f4, .f5, .f6, .vf_logo
   position absolute
-.expanded
-  opacity 0
 
 @import 'utilities/utilities'
 @import 'utilities/banner_defaults'
+@import 'utilities/states'
 @import 'components/objects'
 
 .copy
@@ -40,11 +39,8 @@ CUSTOM STYLES
     opacity 0
     z-index 10
 
-.collapsed
-  position absolute
-  width 970px
-  height 250px
-
+.feature-collapsed
+  background url('../img/background.jpg')
   & > .rhombus
     position absolute
     width 900px
@@ -54,7 +50,7 @@ CUSTOM STYLES
     border-radius 26px
     transform rotate(-45deg)
     background-color vfred
-    // mix-blend-mode multiply
+    mix-blend-mode multiply
     z-index 9
 
   & .f1_c1
@@ -85,6 +81,9 @@ CUSTOM STYLES
     opacity 0
   & img
     position absolute
+
+.feature-expanded
+  background url('../img/background.jpg')
 
 #ytClose_dc
   z-index 999
