@@ -37,9 +37,7 @@ CUSTOM STYLES
     mix-blend-mode multiply
     opacity 0
     z-index 10
-
-.feature-collapsed
-  background url('../img/background.jpg')
+.feature-collapsed, .feature-expanded
   & > .rhombus
     position absolute
     width 900px
@@ -51,7 +49,13 @@ CUSTOM STYLES
     background-color vfred
     mix-blend-mode multiply
     z-index 9
+  & > .vf_logo
+    top 183px
+    left 116px
+    z-index 20
 
+.feature-collapsed
+  background url('../img/background.jpg')
   & .f1_c1
     left 50%
     transform translate(-50%, -50%)
@@ -60,11 +64,6 @@ CUSTOM STYLES
     left 165px
   & .f3_c1
     left 250px
-
-  & > .vf_logo
-    top 183px
-    left 116px
-    z-index 20
   // FRAME 4
   & .mm_personal
     left 190px
@@ -74,7 +73,7 @@ CUSTOM STYLES
 .vf_tagline
   position absolute
   left 10px
-  bottom 60px
+  top 188px
   z-index 15
   & :nth-of-type(2)
     opacity 0
@@ -84,8 +83,19 @@ CUSTOM STYLES
 .feature-expanded
   background url('../img/background.jpg')
   overflow hidden
-  & .phone
-    top 20px
-    left 615px
-  & .coffee
-    left -15px
+  & .mm_f2_c1
+    position absolute
+    top 175px
+    left 300px
+  & .mm_f3_c1
+    position absolute
+    top 230px
+    left 300px
+    opacity 0
+  // FRAME 4
+  & .mm_personal
+    position absolute
+    left 190px
+  & .mm_cta
+    position absolute
+    left 455px

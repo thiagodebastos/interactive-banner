@@ -1,70 +1,98 @@
 @import 'phone'
 
-.objects:not(.copy)
-  opacity 0
-.objects
-  img
+.feature-collapsed
+  .objects:not(.copy)
+    opacity 0
+  .objects
+    img
+      position absolute
+
+  .coffee
+    left 0px
+    top 54%
+    transform translate(0, -50%)
+
+  .headphones
+    left 235px
+    top -90px
+    transform rotate(65deg)
+    z-index 3
+
+  .passport
+    left 430px
+    top -140px
+    transform rotate(-70deg)
+    z-index 2
+
+  .camera
+    left 142px
+    bottom -44px
+
+  .ticket
+    left 715px
+    top -20px
+    transform rotate(-15deg)
+    z-index 2
+
+  .popcorn
+    left 620px
+    top -80px
+    transform rotate(45deg)
+    z-index 1
+
+  .bluetooth
+    left 863px
+    top 60px
+    z-index 1
+
+  .postcard
+    right -43px
+    bottom -25px
+
+  .chopsticks_single--1
+    left 325px
+    transform rotate(-17deg) scale(0.8)
+    bottom 35px + 10px
+  .chopsticks_single--2
+    left 325px
+    transform rotate(-17deg) scale(0.8)
+    bottom 20px + 10px
+
+  .spoon
+    left 420px
+    bottom -40px
+    transform scale(0.8) rotate(-25deg)
+
+  .coins
+    top -100px
+    left 60px
+.feature-expanded
+  & .objects img
     position absolute
+  & .phone
+    top 70px
+    left 615px
+  & .coffee
+    left 10px
+    top 295px
+    transform scale(1.5)
+  & .glasses
+    bottom -40px
+    left 155px
+    transform rotate(-25deg) scale(1.5)
+  & .diary
+    top -130px
+    right -45px
+    transform rotate(25deg)
+  & .pen
+    top 150px
+    right -80px
+    transform rotate(35deg)
+  & .bluetooth
+    top 66px
+    left 215px
+    transform rotate(25deg) scale(1.5)
 
-.coffee
-  left 0px
-  top 54%
-  transform translate(0, -50%)
-
-.headphones
-  left 235px
-  top -90px
-  transform rotate(65deg)
-  z-index 3
-
-.passport
-  left 430px
-  top -140px
-  transform rotate(-70deg)
-  z-index 2
-
-.camera
-  left 142px
-  bottom -44px
-
-.ticket
-  left 715px
-  top -20px
-  transform rotate(-15deg)
-  z-index 2
-
-.popcorn
-  left 620px
-  top -80px
-  transform rotate(45deg)
-  z-index 1
-
-.bluetooth
-  left 863px
-  top 60px
-  z-index 1
-
-.postcard
-  right -43px
-  bottom -25px
-
-.chopsticks_single--1
-  left 325px
-  transform rotate(-17deg) scale(0.8)
-  bottom 35px + 10px
-.chopsticks_single--2
-  left 325px
-  transform rotate(-17deg) scale(0.8)
-  bottom 20px + 10px
-
-.spoon
-  left 420px
-  bottom -40px
-  transform scale(0.8) rotate(-25deg)
-
-.coins
-  top -100px
-  left 60px
 
 .pulses
   display none
