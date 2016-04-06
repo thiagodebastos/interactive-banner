@@ -21,23 +21,34 @@ const animation = () => {
   ControlModule(tl, tlCalls);
   const timeBetweenFrames = "+=2";
 
-  tl.addLabel("collapsed_frame01")
+  const objectInteractionWiggles = [
+    '.feature-collapsed .headphones',
+    '.feature-collapsed .passport',
+    '.feature-collapsed .popcorn',
+    '.feature-collapsed .ticket',
+    '.feature-collapsed .coins',
+    '.feature-collapsed .bluetooth',
+  ];
 
+
+  tl.addLabel("objectsPop")
   // pop all objects into frame
   .set('.objects', {opacity: 1})
-  .from('.feature-collapsed .headphones, .passport, .popcorn, .ticket, .coins', 0.5, {y:-150, rotation:-45}, "collapsed_frame01")
-  .from('.feature-collapsed .coffee', 0.5, {x:-150, rotation:-45}, "collapsed_frame01")
-  .from('.feature-collapsed .bluetooth', 0.5, {x:150, rotation:-45}, "collapsed_frame01")
-  .from('.feature-collapsed .postcard', 0.5, {x:150, y:100, rotation:-45}, "collapsed_frame01")
-  .from('.feature-collapsed .camera', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
-  .from('.feature-collapsed .chopsticks_single--1', 0.5, {y:150, rotation:-45}, "collapsed_frame01")
-  .from('.feature-collapsed .chopsticks_single--2', 0.5, {y:150, rotation:-65}, "collapsed_frame01")
-  .from('.feature-collapsed .spoon', 0.5, {y:150, rotation:75}, "collapsed_frame01")
-
-  .to(".collapsed .vf_logo", 0.5, {opacity: 1 }, "-=0.4")
+  .from('.feature-collapsed .headphones, .feature-collapsed .passport, .feature-collapsed .popcorn, .feature-collapsed .ticket, .feature-collapsed .coins', 0.5, {y:-150, rotation:-45}, "objectsPop")
+  .from('.feature-collapsed .coffee', 0.5, {x:-150, rotation:-45}, "objectsPop")
+  .from('.feature-collapsed .bluetooth', 0.5, {x:150, rotation:-45}, "objectsPop")
+  .from('.feature-collapsed .postcard', 0.5, {x:150, y:100, rotation:-45}, "objectsPop")
+  .from('.feature-collapsed .camera', 0.5, {y:150, rotation:-45}, "objectsPop")
+  .from('.feature-collapsed .chopsticks_single--1', 0.5, {y:150, rotation:-45}, "objectsPop")
+  .from('.feature-collapsed .chopsticks_single--2', 0.5, {y:150, rotation:-65}, "objectsPop")
+  .from('.feature-collapsed .spoon', 0.5, {y:150, rotation:75}, "objectsPop")
 
   .to('.collapsed .f1_c1', 0.5, {opacity: 1})
-  .to('.collapsed .f1_c1', 0.5, {opacity: 0}, timeBetweenFrames)
+
+  // pause and await user interaction
+  .addLabel('waitForUser')
+  .to(objectInteractionWiggles,0.5,{rotation:'-=5', repeat: 10, yoyo: true})
+  .to('.collapsed .f1_c1', 0.5, {opacity: 0}, '+=5')
 
   .addLabel("collapsed_frame02")
   .to('.collapsed .f2_c1', 0.5, {opacity: 1})
