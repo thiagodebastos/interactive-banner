@@ -1,5 +1,5 @@
 // ANIMATION CONTROLS MODULE
-function ControlModule (tl) {
+function ControlModule (tl, tlCalls) {
   const listen = (el, handler) => el.addEventListener("click", handler);
   const animationControls = document.getElementById("animationControls");
   const btnTypes = ['play', 'pause', 'resume', 'reverse', 'restart'];
@@ -22,8 +22,8 @@ function ControlModule (tl) {
   listen(resume_btn, resumeHandler);
   listen(reverse_btn, reverseHandler);
   listen(restart_btn, restartHandler);
-  listen(expBtn, pauseHandler);
-  listen(colBtn, resumeHandler);
+  listen(expBtn, expandHandler);
+  listen(colBtn, collapseHandler);
 
 
   // control timeline with all the buttons
@@ -32,6 +32,8 @@ function ControlModule (tl) {
   function resumeHandler(){ tl.resume();}
   function reverseHandler(){ tl.reverse();}
   function restartHandler(){ tl.restart();}
+  function expandHandler(){ tlCalls.restart(); tl.pause();}
+  function collapseHandler(){ tlCalls.pause() ;tl.resume();}
 
   // HACK: skip to end frame and pause. For some reason I could not reach TweenMax from doubleclick.js
   function skipToEnd(){ tl.seek("endFrame").pause();}

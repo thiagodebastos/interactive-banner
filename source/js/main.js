@@ -16,9 +16,9 @@ const animation = () => {
       onCompleteParams:["end"],
     }
   );
-
+  const tlCalls = new TimelineMax();
     // CONTROL MODULE FUNCTIOn
-    ControlModule(tl);
+  ControlModule(tl, tlCalls);
   const timeBetweenFrames = "+=2";
 
   tl.addLabel("collapsed_frame01")
@@ -34,13 +34,6 @@ const animation = () => {
   .from('.feature-collapsed .chopsticks_single--2', 0.5, {y:150, rotation:-65}, "collapsed_frame01")
   .from('.feature-collapsed .spoon', 0.5, {y:150, rotation:75}, "collapsed_frame01")
 
-  .to(".collapsed.rhombus", 0.5, {
-    ease: Power1.easeInOut,
-    boxShadow:"0px 0px 10px 10px #E30613",
-    rotation: "+=360deg",
-    transformOrigin: "30px 30px",
-  })
-  .to(".collapsed .rhombus", 0.1, {boxShadow: "0px 0px 0px 0px"}, "-=0.125")
   .to(".collapsed .vf_logo", 0.5, {opacity: 1 }, "-=0.4")
 
   .to('.collapsed .f1_c1', 0.5, {opacity: 1})
@@ -69,23 +62,27 @@ const animation = () => {
   .to('.collapsed .f3_c1', 0.5, {opacity: 1})
   .to('.will-zoom', 0.5, {scale: 1.25, x: -90, y:-5})
   .to('.collapsed .f3_c1', 0.5, {opacity: 0}, "+=2")
-  // TODO: add frame wipe
   .addLabel('collapsed_frame03_a')
   .to('.feature-collapsed>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
   .to('.feature-collapsed .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'collapsed_frame03_a')
   .to('.feature-collapsed .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'collapsed_frame03_a')
-  .to('.will-zoom .mask', 0.5, {opacity: 1})
+  .to('.will-zoom .mask', 0.5, {opacity: 1}, '-=0.5')
   .to('.collapsed .mm_personal', 0.5, {opacity: 1})
   .to('.collapsed .mm_cta', 0.5, {opacity: 1})
 
 
-  .addLabel("endFrame")
+  .addLabel("collapse_endFrame")
 
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
   // tl.seek("endFrame")
   // .pause();
+
+  // EXPANDED CALLS
+  tlCalls.from(".expanded-calls .phone", 0.5, {x: 100 });
+
+
 
 
 }
