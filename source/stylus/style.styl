@@ -83,15 +83,28 @@ CUSTOM STYLES
 .feature-expanded
   background url('../img/background.jpg')
   overflow hidden
-  & .mm_f2_c1
+  & > .mask
+    position absolute
+    width 100%
+    height 100%
+    background vfred
+    mix-blend-mode multiply
+    opacity 0
+    z-index 10
+  & .mm_f1_c1
     position absolute
     top 175px
     left 300px
+  & .mm_f2_c1
+    position absolute
+    top 252px
+    left 300px
   & .mm_f3_c1
     position absolute
-    top 230px
+    top 231px
     left 300px
     opacity 0
+    transform translate(0%, 0%)
   // FRAME 4
   & .mm_personal
     position absolute

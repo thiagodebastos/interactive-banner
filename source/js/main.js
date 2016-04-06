@@ -87,13 +87,37 @@ const animation = () => {
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-  // tl.seek("endFrame")
-  // .pause();
-
   // EXPANDED CALLS
-  tlCalls.from(".expanded-calls .phone", 0.5, {x: 100 });
+  tlCalls
+  .addLabel('expanded-calls')
+  .from(".expanded-calls .phone-expanded", 0.5, {x: 100 })
+  .to(".phone-expanded .rhombus", 0.5, {
+    ease: Power1.easeInOut,
+    opacity: 1,
+    boxShadow:"0px 0px 5px 5px #E30613",
+    rotation: "+=405deg",
+  })
+  .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+  .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
+  .to('.phone-expanded .vf_logo', 0.25, {opacity: 0}, "+=0.5")
+  .to('.phone-expanded .mm_print', 0.25, {opacity: 1}, "+=0.5")
+  .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1}, "+=1")
 
+  .fromTo('.expanded-calls .mm_f1_c1', 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, 'expanded-calls')
+  .fromTo('.expanded-calls .mm_f2_c1', 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, 'expanded-calls+=4')
+  .fromTo('.expanded-calls .mm_f3_c1', 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, 'expanded-calls+=7')
+  .to('.expanded-calls .mm_personal', 0.5, {opacity: 1})
+  .to('.expanded-calls .mm_cta', 0.5, {opacity: 1})
+  .to(".expanded-calls .phone-expanded", 0.5, {rotation: '-=15deg'})
 
+  .addLabel('expanded_frame03_a')
+  .to('.feature-expanded>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
+  .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
+  .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a')
+  .to('.feature-expanded .mask', 0.5, {opacity: 1}, '-=0.5')
+  .to('.expanded .mm_personal', 0.5, {opacity: 1})
+  .to('.expanded .mm_cta', 0.5, {opacity: 1})
 
-
+  // tl.seek("expanded-calls+=2.5")
+  // .pause();
 }
