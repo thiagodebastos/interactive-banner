@@ -36,7 +36,7 @@ function ControlModule (tl, tlCalls) {
   function collapseHandler(){ tlCalls.pause() ;tl.resume();}
 
   // HACK: skip to end frame and pause. For some reason I could not reach TweenMax from doubleclick.js
-  function skipToEnd(){ tl.seek("endFrame").pause();}
-  const banner = document.getElementById("animation");
-  // listen(banner, skipToEnd);
+  function skipToEnd(){ tl.seek("collapse_endFrame").pause();}
+  const banner = document.getElementById("expanded-exit");
+  listen(banner, skipToEnd);
 }
