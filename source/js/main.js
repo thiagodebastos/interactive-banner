@@ -24,7 +24,7 @@ const animation = () => {
   const objectInteractionWiggles = [
     '.feature-collapsed .headphones',
     '.feature-collapsed .passport',
-    '.feature-collapsed .popcorn',
+    // '.feature-collapsed .popcorn',
     '.feature-collapsed .ticket',
     '.feature-collapsed .coins',
     '.feature-collapsed .bluetooth',
@@ -34,7 +34,7 @@ const animation = () => {
   tl.addLabel("objectsPop")
   // pop all objects into frame
   .set('.objects', {opacity: 1})
-  .from('.feature-collapsed .headphones, .feature-collapsed .passport, .feature-collapsed .popcorn, .feature-collapsed .ticket, .feature-collapsed .coins', 0.5, {y:-150, rotation:-45}, "objectsPop")
+  .from('.feature-collapsed .headphones, .feature-collapsed .passport, .feature-collapsed .ticket, .feature-collapsed .coins', 0.5, {y:-150, rotation:-45}, "objectsPop")
   .from('.feature-collapsed .coffee', 0.5, {x:-150, rotation:-45}, "objectsPop")
   .from('.feature-collapsed .bluetooth', 0.5, {x:150, rotation:-45}, "objectsPop")
   .from('.feature-collapsed .postcard', 0.5, {x:150, y:100, rotation:-45}, "objectsPop")
@@ -47,8 +47,8 @@ const animation = () => {
 
   // pause and await user interaction
   .addLabel('waitForUser')
-  .to(objectInteractionWiggles,0.5,{rotation:'-=5', repeat: 10, yoyo: true})
-  .to('.collapsed .f1_c1', 0.5, {opacity: 0}, '+=5')
+  .to(objectInteractionWiggles,0.5,{rotation:'-=1', repeat: 3, yoyo: true})
+  .to('.collapsed .f1_c1', 0.5, {opacity: 0}, '+=1')
 
   .addLabel("collapsed_frame02")
   .to('.collapsed .f2_c1', 0.5, {opacity: 1})
@@ -64,8 +64,8 @@ const animation = () => {
   .to('.phone-collapsed .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
   .to('.phone-collapsed .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
   .to('.phone-collapsed .vf_logo', 0.25, {opacity: 0}, "+=0.5")
-  .to('.phone-collapsed .mm_print', 0.25, {opacity: 1}, "+=0.5")
-  .to('.phone-collapsed .mask .mm_results', 0.5, {opacity: 1}, "+=1")
+  // .to('.phone-collapsed .mm_print', 0.25, {opacity: 1}, "+=0.5")
+  .to('.phone-collapsed .mask .mm_results', 0.5, {opacity: 1})
 
   .to('.collapsed .f2_c1', 0.5, {opacity: 0})
 
@@ -99,9 +99,9 @@ const animation = () => {
   }, '-=0.5')
   .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
   .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
-  .to('.phone-expanded .vf_logo', 0.25, {opacity: 0}, "+=0.5")
-  .to('.phone-expanded .mm_print', 0.25, {opacity: 1}, "+=0.5")
-  .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1}, "+=1")
+  // .to('.phone-expanded .vf_logo', 0.25, {opacity: 0}, "+=0.5")
+  // .to('.phone-expanded .mm_print', 0.25, {opacity: 1}, "+=0.5")
+  .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1})
 
   .fromTo('.expanded-calls .mm_f1_c1', 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, 'expanded-calls')
   .fromTo('.expanded-calls .mm_f2_c1', 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, 'expanded-calls+=4')
