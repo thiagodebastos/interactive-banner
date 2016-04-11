@@ -27,7 +27,9 @@ function setupDom() {
   creative.dom.collapsedExit = document.getElementById('collapsed-exit');
   creative.dom.collapsedContent = document.getElementById('collapsed-content');
   creative.dom.collapseButton = document.getElementById('collapse-button');
-  creative.dom.expandButton = document.getElementById('expand-button');
+  creative.dom.expandData = document.getElementById('expand-data');
+  creative.dom.expandCalls = document.getElementById('expand-calls');
+  creative.dom.expandInternational = document.getElementById('expand-international');
   creative.dom.animationControls = document.getElementById('animationControls');
   // creative.dom.image0 = document.getElementById('main-img-0');
   // creative.dom.image1 = document.getElementById('main-img-1');
@@ -59,7 +61,9 @@ function addListeners() {
   Enabler.addEventListener(studio.events.StudioEvent.EXPAND_FINISH, expandFinishHandler);
   Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_START, collapseStartHandler);
   Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_FINISH, collapseFinishHandler);
-  creative.dom.expandButton.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandData.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandCalls.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandInternational.addEventListener('click', onExpandHandler, false);
   creative.dom.collapseButton.addEventListener('click', onCollapseClickHandler, false);
   creative.dom.expandedExit.addEventListener('click', exitClickHandler);
   creative.dom.collapsedExit.addEventListener('click', collapsedExitClickHandler);
@@ -75,9 +79,9 @@ function show() {
 
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
-  creative.dom.expandButton.style.display = 'block';
-  // creative.dom.image0.style.visibility  = 'visible';
-  // creative.dom.image1.style.visibility  = 'visible';
+  creative.dom.expandData.style.display = 'block';
+  creative.dom.expandCalls.style.display = 'block';
+  creative.dom.expandInternational.style.display = 'block';
 }
 
 // ---------------------------------------------------------------------------------
@@ -94,7 +98,9 @@ function expandStartHandler() {
   creative.dom.mainContainer.style.height = '500px';
   creative.dom.collapsedContent.style.display = 'none';
   creative.dom.collapsedExit.style.display = 'none';
-  creative.dom.expandButton.style.display = 'none';
+  creative.dom.expandData.style.display = 'none';
+  creative.dom.expandCalls.style.display = 'none';
+  creative.dom.expandInternational.style.display = 'none';
   Enabler.finishExpand();
 }
 
@@ -112,7 +118,9 @@ function collapseStartHandler() {
   creative.dom.mainContainer.style.height = '250px';
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
-  creative.dom.expandButton.style.display = 'block';
+  creative.dom.expandData.style.display = 'block';
+  creative.dom.expandCalls.style.display = 'block';
+  creative.dom.expandInternational.style.display = 'block';
 
   // When animation finished must call
   Enabler.finishCollapse();

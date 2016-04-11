@@ -4,7 +4,9 @@ function ControlModule (tl, tlCalls) {
   const animationControls = document.getElementById("animationControls");
   const btnTypes = ['play', 'pause', 'resume', 'reverse', 'restart'];
   const btns = btnTypes.map(createBtn);
-  const expBtn = document.getElementById("expand-button");
+  const expData = document.getElementById("expand-data");
+  const expCalls = document.getElementById("expand-calls");
+  const expInt = document.getElementById("expand-international");
   const colBtn = document.getElementById("collapse-button");
 
   // function to be mapped to btns array
@@ -22,7 +24,9 @@ function ControlModule (tl, tlCalls) {
   listen(resume_btn, resumeHandler);
   listen(reverse_btn, reverseHandler);
   listen(restart_btn, restartHandler);
-  listen(expBtn, expandHandler);
+  listen(expData, expandHandler);
+  listen(expCalls, expandHandler);
+  listen(expInt, expandHandler);
   listen(colBtn, collapseHandler);
 
 

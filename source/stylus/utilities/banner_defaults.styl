@@ -76,12 +76,27 @@ BANNER DEFAULTS
   font-size: 10pt;
 }
 
-#expand-button {
-  bottom: 0;
-  right: 0;
-  border-width: 1px 0 0 1px;
+.expand-buttons
+  width 140px
+  height 30px
+  position absolute
+  bottom 0
+  right 0
+  z-index 2000
+
+#expand-calls, #expand-data, #expand-international {
+  // border-width: 1px 0 0 1px;
   display: none;
+  right 0
+  width 120px
 }
+#expand-data
+  bottom 60px
+#expand-calls
+  bottom 30px
+#expand-international
+  bottom 0x
+
 
 #collapse-button {
   color: #FFF;
