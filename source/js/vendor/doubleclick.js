@@ -29,7 +29,7 @@ function setupDom() {
   creative.dom.collapseButton = document.getElementById('collapse-button');
   creative.dom.expandData = document.getElementById('expand-data');
   creative.dom.expandCalls = document.getElementById('expand-calls');
-  creative.dom.expandInternational = document.getElementById('expand-international');
+  creative.dom.expandInternational = document.getElementById('expand-int');
   creative.dom.animationControls = document.getElementById('animationControls');
   // creative.dom.image0 = document.getElementById('main-img-0');
   // creative.dom.image1 = document.getElementById('main-img-1');
@@ -79,10 +79,7 @@ function show() {
 
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
-  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-international', 0.6, {x:100}, {x:0, opacity:1}, 0.2);
-  // creative.dom.expandData.style.display = 'block';
-  // creative.dom.expandCalls.style.display = 'block';
-  // creative.dom.expandInternational.style.display = 'block';
+  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-int', 0.6, {x:100}, {x:0, opacity:1}, 0.2);
 }
 
 // ---------------------------------------------------------------------------------
@@ -99,7 +96,7 @@ function expandStartHandler() {
   creative.dom.mainContainer.style.height = '500px';
   creative.dom.collapsedContent.style.display = 'none';
   creative.dom.collapsedExit.style.display = 'none';
-  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-international', 0.6, {x:0, opacity:1}, {x:100, opacity:0}, 0.2);
+  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-int', 0.6, {x:0, opacity:1}, {x:100, opacity:0}, 0.2);
   Enabler.finishExpand();
 }
 
@@ -117,10 +114,7 @@ function collapseStartHandler() {
   creative.dom.mainContainer.style.height = '250px';
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
-  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-international', 0.6, {x:100}, {x:0, opacity:1}, 0.2);
-  // creative.dom.expandData.style.display = 'block';
-  // creative.dom.expandCalls.style.display = 'block';
-  // creative.dom.expandInternational.style.display = 'block';
+  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-int', 0.6, {x:100}, {x:0, opacity:1}, 0.2);
 
   // When animation finished must call
   Enabler.finishCollapse();

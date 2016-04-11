@@ -18,9 +18,9 @@ const animation = () => {
   );
 
   // Declare timelines to export as params in ControlModule
-  const tlCalls = new TimelineMax();
-  const tlData = new TimelineMax();
-  const tlInternational = new TimelineMax();
+  const tlCalls = new TimelineMax({paused: true});
+  const tlData = new TimelineMax({paused: true});
+  const tlInternational = new TimelineMax({paused: true});
     // CONTROL MODULE FUNCTIOn
   ControlModule(tl, tlCalls, tlData, tlInternational);
   const timeBetweenFrames = "+=2";
@@ -92,39 +92,42 @@ const animation = () => {
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
 function expand(mix, timeline) {
+  const dataObjects = [];
+  const callsObjects = [];
+  const intObjects = [];
+
   timeline
-  .addLabel(`expanded-${mix}`)
-  .from(`.expanded-${mix} .phone-expanded`, 0.5, {x: 100 })
-  .to(".phone-expanded .rhombus", 0.5, {
-    ease: Power1.easeInOut,
-    opacity: 1,
-    boxShadow:"0px 0px 5px 5px #E30613",
-    rotation: "+=405deg",
-  }, '-=0.5')
-  .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
-  .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
-  // .to('.phone-expanded .vf_logo', 0.25, {opacity: 0}, "+=0.5")
-  // .to('.phone-expanded .mm_print', 0.25, {opacity: 1}, "+=0.5")
-  .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1})
+    .addLabel(`expanded-${mix}`)
+    .from(`.phone-expanded`, 0.5, {x: 100 })
+    .to(".phone-expanded .rhombus", 0.5, {
+      ease: Power1.easeInOut,
+      opacity: 1,
+      boxShadow:"0px 0px 5px 5px #E30613",
+      rotation: "+=405deg",
+    }, '-=0.5')
+    .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+    .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
+    .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1})
 
-  .fromTo(`.expanded-${mix} .mm_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
-  .fromTo(`.expanded-${mix} .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
-  .fromTo(`.expanded-${mix} .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
+    .fromTo(`.expanded .mm_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
+    .fromTo(`.expanded-${mix} .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
+    .fromTo(`.expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
 
-  .addLabel('expanded_frame03_a')
-  .to('.feature-expanded>.rhombus', 0.5, {css:{'${mix}-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
-  .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
-  .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a')
-  .to('.feature-expanded .mask', 0.5, {opacity: 1}, '-=0.5')
-  .to('.feature-expanded .mm_personal', 0.5, {opacity: 1})
-  .to('.feature-expanded .mm_cta', 0.5, {opacity: 1})
+    .addLabel('expanded_frame03_a')
+    .to('.feature-expanded>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
+    .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
+    .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a')
+    .to('.feature-expanded .mask', 0.5, {opacity: 1}, '-=0.5')
+    .to('.feature-expanded .mm_personal', 0.5, {opacity: 1})
+    .to('.feature-expanded .mm_cta', 0.5, {opacity: 1})
+
+  console.log(`[custom] MyMix: ${mix}`);
 }
 
   // EXPANDED CALLS
 expand('calls', tlCalls);
 expand('data', tlData);
-expand('international', tlInternational);
-
+expand('int', tlInternational);
 
   // tl.seek("expanded-calls+=2.5")
   // .pause();

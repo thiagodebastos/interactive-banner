@@ -6,7 +6,7 @@ function ControlModule (tl, tlCalls, tlData, tlInternational) {
   const btns = btnTypes.map(createBtn);
   const expData = document.getElementById("expand-data");
   const expCalls = document.getElementById("expand-calls");
-  const expInt = document.getElementById("expand-international");
+  const expInt = document.getElementById("expand-int");
   const colBtn = document.getElementById("collapse-button");
 
   // function to be mapped to btns array
@@ -36,11 +36,10 @@ function ControlModule (tl, tlCalls, tlData, tlInternational) {
   function resumeHandler(){ tl.resume();}
   function reverseHandler(){ tl.reverse();}
   function restartHandler(){ tl.restart();}
-  function expandHandlerData(){ tlData.restart(); tl.pause();}
+  function expandHandlerData(){ tlData.restart(); tl.pause(); console.log('Data Expand');}
   function expandHandlerCalls(){ tlCalls.restart(); tl.pause();}
   function expandHandlerInternational(){ tlInternational.restart(); tl.pause();}
   function collapseHandler(){ tlCalls.stop(); tlData.stop(); tlInternational.stop(); tl.resume();}
-
   // HACK: skip to end frame and pause. For some reason I could not reach TweenMax from doubleclick.js
   function skipToEnd(){ tl.seek("collapse_endFrame").pause();}
   const banner = document.getElementById("expanded-exit");
