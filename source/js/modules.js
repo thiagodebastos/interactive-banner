@@ -1,5 +1,5 @@
 // ANIMATION CONTROLS MODULE
-function ControlModule (tl, tlCalls) {
+function ControlModule (tl, tlCalls, tlData, tlInternational) {
   const listen = (el, handler) => el.addEventListener("click", handler);
   const animationControls = document.getElementById("animationControls");
   const btnTypes = ['play', 'pause', 'resume', 'reverse', 'restart'];
@@ -24,9 +24,9 @@ function ControlModule (tl, tlCalls) {
   listen(resume_btn, resumeHandler);
   listen(reverse_btn, reverseHandler);
   listen(restart_btn, restartHandler);
-  listen(expData, expandHandler);
-  listen(expCalls, expandHandler);
-  listen(expInt, expandHandler);
+  listen(expData, expandHandlerData);
+  listen(expCalls, expandHandlerCalls);
+  listen(expInt, expandHandlerInternational);
   listen(colBtn, collapseHandler);
 
 
@@ -36,8 +36,10 @@ function ControlModule (tl, tlCalls) {
   function resumeHandler(){ tl.resume();}
   function reverseHandler(){ tl.reverse();}
   function restartHandler(){ tl.restart();}
-  function expandHandler(){ tlCalls.restart(); tl.pause();}
-  function collapseHandler(){ tlCalls.pause() ;tl.resume();}
+  function expandHandlerData(){ tlData.restart(); tl.pause();}
+  function expandHandlerCalls(){ tlCalls.restart(); tl.pause();}
+  function expandHandlerInternational(){ tlInternational.restart(); tl.pause();}
+  function collapseHandler(){ tlCalls.stop(); tlData.stop(); tlInternational.stop(); tl.resume();}
 
   // HACK: skip to end frame and pause. For some reason I could not reach TweenMax from doubleclick.js
   function skipToEnd(){ tl.seek("collapse_endFrame").pause();}

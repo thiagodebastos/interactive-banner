@@ -86,22 +86,30 @@ BANNER DEFAULTS
 
 #expand-calls, #expand-data, #expand-international {
   // border-width: 1px 0 0 1px;
-  display: none;
+  // display: none;
+  opacity 0
   right 0
   width 120px
+  color: black;
+  background-color: whitesmoke;
+  box-shadow: 0px 10px 30px -1px rgba(0,0,0,0.75);
+  border-radius 6px 0 0 6px
 }
 #expand-data
-  bottom 60px
+  bottom 65px
+  border-width 0
 #expand-calls
-  bottom 30px
+  bottom 35px
+  border-width 0
 #expand-international
-  bottom 0x
+  bottom 1
+  border-width 0
 
 
 #collapse-button {
   color: #FFF;
-  background-color: #339933;
-  border: 1px outset #333;
+  background-color: vfred;
+  border: 1px outset whitesmoke;
   border-width: 0 1px 1px 0;
   cursor: pointer;
   /* Important: keep 5px padding at top: 0 and left: as per YouTube Specs */

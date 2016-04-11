@@ -79,9 +79,10 @@ function show() {
 
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
-  creative.dom.expandData.style.display = 'block';
-  creative.dom.expandCalls.style.display = 'block';
-  creative.dom.expandInternational.style.display = 'block';
+  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-international', 0.6, {x:100}, {x:0, opacity:1}, 0.2);
+  // creative.dom.expandData.style.display = 'block';
+  // creative.dom.expandCalls.style.display = 'block';
+  // creative.dom.expandInternational.style.display = 'block';
 }
 
 // ---------------------------------------------------------------------------------
@@ -98,9 +99,7 @@ function expandStartHandler() {
   creative.dom.mainContainer.style.height = '500px';
   creative.dom.collapsedContent.style.display = 'none';
   creative.dom.collapsedExit.style.display = 'none';
-  creative.dom.expandData.style.display = 'none';
-  creative.dom.expandCalls.style.display = 'none';
-  creative.dom.expandInternational.style.display = 'none';
+  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-international', 0.6, {x:0, opacity:1}, {x:100, opacity:0}, 0.2);
   Enabler.finishExpand();
 }
 
@@ -118,9 +117,10 @@ function collapseStartHandler() {
   creative.dom.mainContainer.style.height = '250px';
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
-  creative.dom.expandData.style.display = 'block';
-  creative.dom.expandCalls.style.display = 'block';
-  creative.dom.expandInternational.style.display = 'block';
+  TweenMax.staggerFromTo('#expand-data, #expand-calls, #expand-international', 0.6, {x:100}, {x:0, opacity:1}, 0.2);
+  // creative.dom.expandData.style.display = 'block';
+  // creative.dom.expandCalls.style.display = 'block';
+  // creative.dom.expandInternational.style.display = 'block';
 
   // When animation finished must call
   Enabler.finishCollapse();
