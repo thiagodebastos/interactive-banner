@@ -91,13 +91,25 @@ const animation = () => {
   console.log(`[custom] loop duration: ${tl.duration()}s`);
   console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
+var objects;
+
 function expand(mix, timeline) {
-  const dataObjects = [];
-  const callsObjects = [];
-  const intObjects = [];
+  switch(mix) {
+    case 'calls':
+      var objects = ['.feature-expanded .bluetooth'];
+      break;
+    case 'int':
+      var objects = ['.feature-expanded .passport'];
+      break;
+    case 'data':
+      var objects = ['.feature-expanded .headphones'];
+      break;
+  }
+
 
   timeline
     .addLabel(`expanded-${mix}`)
+    .set(objects, {opacity: 1, border:'1px solid red'})
     .from(`.phone-expanded`, 0.5, {x: 100 })
     .to(".phone-expanded .rhombus", 0.5, {
       ease: Power1.easeInOut,

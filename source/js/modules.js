@@ -4,9 +4,9 @@ function ControlModule (tl, tlCalls, tlData, tlInternational) {
   const animationControls = document.getElementById("animationControls");
   const btnTypes = ['play', 'pause', 'resume', 'reverse', 'restart'];
   const btns = btnTypes.map(createBtn);
-  const expData = document.getElementById("expand-data");
-  const expCalls = document.getElementById("expand-calls");
-  const expInt = document.getElementById("expand-int");
+  // const expData = document.getElementById("expand-data");
+  const expCalls = document.querySelector(".bluetooth");
+  // const expInt = document.getElementById("expand-int");
   const colBtn = document.getElementById("collapse-button");
 
   // function to be mapped to btns array
@@ -24,9 +24,9 @@ function ControlModule (tl, tlCalls, tlData, tlInternational) {
   listen(resume_btn, resumeHandler);
   listen(reverse_btn, reverseHandler);
   listen(restart_btn, restartHandler);
-  listen(expData, expandHandlerData);
+  // listen(expData, expandHandlerData);
   listen(expCalls, expandHandlerCalls);
-  listen(expInt, expandHandlerInternational);
+  // listen(expInt, expandHandlerInternational);
   listen(colBtn, collapseHandler);
 
 
@@ -36,9 +36,9 @@ function ControlModule (tl, tlCalls, tlData, tlInternational) {
   function resumeHandler(){ tl.resume();}
   function reverseHandler(){ tl.reverse();}
   function restartHandler(){ tl.restart();}
-  function expandHandlerData(){ tlData.restart(); tl.pause(); console.log('Data Expand');}
+  // function expandHandlerData(){ tlData.restart(); tl.pause(); console.log('Data Expand');}
   function expandHandlerCalls(){ tlCalls.restart(); tl.pause();}
-  function expandHandlerInternational(){ tlInternational.restart(); tl.pause();}
+  // function expandHandlerInternational(){ tlInternational.restart(); tl.pause();}
   function collapseHandler(){ tlCalls.stop(); tlData.stop(); tlInternational.stop(); tl.resume();}
   // HACK: skip to end frame and pause. For some reason I could not reach TweenMax from doubleclick.js
   function skipToEnd(){ tl.seek("collapse_endFrame").pause();}
