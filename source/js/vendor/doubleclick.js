@@ -20,9 +20,12 @@ function preInit() {
  * Initializes the ad components
  */
 const expandableObjects = {
-  data : '.headphones, .camera',
+  data1 : '.headphones',
+  data2 : '.camera',
   calls : '.bluetooth',
-  int : '.passport, .chopsticks, .coins',
+  int1 : '.passport',
+  int2 : '.chopsticks',
+  int3 : '.coins',
 }
 
 function setupDom() {
@@ -34,15 +37,18 @@ function setupDom() {
   creative.dom.collapsedContent = document.getElementById('collapsed-content');
   creative.dom.collapseButton = document.getElementById('collapse-button');
   creative.dom.expandCalls = document.querySelector(expandableObjects.calls);
-  creative.dom.expandData = document.querySelector(expandableObjects.data);
-  creative.dom.expandInternational = document.querySelector(expandableObjects.int);
+  creative.dom.expandData1 = document.querySelector(expandableObjects.data1);
+  creative.dom.expandData2 = document.querySelector(expandableObjects.data2);
+  creative.dom.expandInternational1 = document.querySelector(expandableObjects.int1);
+  creative.dom.expandInternational2 = document.querySelector(expandableObjects.int2);
+  creative.dom.expandInternational3 = document.querySelector(expandableObjects.int3);
   creative.dom.animationControls = document.getElementById('animationControls');
 }
 
 /**
  * Ad initialisation.
  */
-function init(e, tl) {
+function init(e, tl, tlData, tlInt, tlCalls) {
   Enabler.setStartExpanded(false);
 
   addListeners();
@@ -54,7 +60,6 @@ function init(e, tl) {
   else {
     Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, show);
   }
-	animation();
 }
 
 /**
@@ -66,8 +71,11 @@ function addListeners() {
   Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_START, collapseStartHandler);
   Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_FINISH, collapseFinishHandler);
   creative.dom.expandCalls.addEventListener('click', onExpandHandler, false);
-  // creative.dom.expandData.addEventListener('click', onExpandHandler, false);
-  // creative.dom.expandInternational.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandData1.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandData2.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandInternational1.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandInternational2.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandInternational3.addEventListener('click', onExpandHandler, false);
   creative.dom.collapseButton.addEventListener('click', onCollapseClickHandler, false);
   creative.dom.expandedExit.addEventListener('click', exitClickHandler);
   creative.dom.collapsedExit.addEventListener('click', collapsedExitClickHandler);
@@ -82,6 +90,7 @@ function show() {
   creative.dom.collapseButton.style.display = 'none';
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
+  animation();
 }
 
 // ---------------------------------------------------------------------------------
@@ -123,12 +132,9 @@ function collapseStartHandler() {
 function collapseFinishHandler() {
   creative.isExpanded = false;
   creative.dom.animationControls.style.top= "250px";
-  tlData.reset();
-  tlInt.reset();
-  tlCalls.reset();
 }
 
-function onCollapseClickHandler(tlData, tlCalls, tlInt){
+function onCollapseClickHandler(){
   Enabler.requestCollapse();
   Enabler.stopTimer('Panel Expansion');
 }

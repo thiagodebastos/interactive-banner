@@ -1,6 +1,6 @@
 // call animation function below
-const animation = () => {
-
+function animation() {
+  animation.numer = 1;
   const timelineProgress = (position) => {
       console.log(`[custom] animation ${position}`);
   }
@@ -22,22 +22,27 @@ const animation = () => {
   const tlData = new TimelineMax({paused: true});
   const tlInternational = new TimelineMax({paused: true});
     // CONTROL MODULE FUNCTIOn
-  ControlModule(tl, tlCalls, tlData, tlInternational);
+  ControlModule(tl);
   const timeBetweenFrames = "+=2";
 
   const objectInteractionWiggles = [
     '.feature-collapsed .headphones',
     '.feature-collapsed .passport',
-    // '.feature-collapsed .popcorn',
     '.feature-collapsed .ticket',
     '.feature-collapsed .coins',
     '.feature-collapsed .bluetooth',
+    '.feature-collapsed .chopsticks',
+    '.feature-collapsed .spoon',
+    '.feature-collapsed .camera',
   ];
 
 
   tl.addLabel("objectsPop")
-  // pop all objects into frame
+  // make objects clickable
   .set('.objects', {opacity: 1})
+  // pop all objects into frame
+  .set(objectInteractionWiggles, {zIndex: 11})
+  .set('#collapsed-exit', {zIndex: 0})
   .from('.feature-collapsed .headphones, .feature-collapsed .passport, .feature-collapsed .ticket, .feature-collapsed .coins', 0.5, {y:-150, rotation:-45}, "objectsPop")
   .from('.feature-collapsed .coffee', 0.5, {x:-150, rotation:-45}, "objectsPop")
   .from('.feature-collapsed .bluetooth', 0.5, {x:150, rotation:-45}, "objectsPop")
@@ -57,6 +62,7 @@ const animation = () => {
   .addLabel("collapsed_frame02")
   .to('.collapsed .f2_c1', 0.5, {opacity: 1})
 
+
   // phone slides up
   .to(".phone-collapsed", 0.5, {top: -5}, "+=0.5")
   .to(".phone-collapsed .rhombus", 0.5, {
@@ -68,10 +74,13 @@ const animation = () => {
   .to('.phone-collapsed .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
   .to('.phone-collapsed .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
   .to('.phone-collapsed .vf_logo', 0.25, {opacity: 0}, "+=0.5")
-  // .to('.phone-collapsed .mm_print', 0.25, {opacity: 1}, "+=0.5")
   .to('.phone-collapsed .mask .mm_results', 0.5, {opacity: 1})
 
   .to('.collapsed .f2_c1', 0.5, {opacity: 0})
+
+  // make objects unclickable
+  .set(objectInteractionWiggles, {zIndex: 9})
+  .set('#collapsed-exit', {zIndex: 400})
 
   .addLabel("collapsed_frame03")
   .to('.collapsed .f3_c1', 0.5, {opacity: 1})
@@ -99,18 +108,18 @@ function expand(mix, timeline) {
       var objects = ['.feature-expanded .bluetooth'];
       break;
     case 'int':
-      var objects = ['.feature-expanded .passport'];
+      var objects = '.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks';
       break;
     case 'data':
-      var objects = ['.feature-expanded .headphones'];
+      var objects = ['.feature-expanded .headphones, .feature-expanded .camera'];
       break;
   }
 
 
   timeline
     .addLabel(`expanded-${mix}`)
-    .set(objects, {opacity: 1, border:'1px solid red'})
-    .from(`.phone-expanded`, 0.5, {x: 100 })
+    .set(objects, {opacity: 1})
+    .from('.phone-expanded', 0.5, {x: 100 })
     .to(".phone-expanded .rhombus", 0.5, {
       ease: Power1.easeInOut,
       opacity: 1,
@@ -121,8 +130,8 @@ function expand(mix, timeline) {
     .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
     .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1})
 
-    .fromTo(`.expanded .mm_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
-    .fromTo(`.expanded-${mix} .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
+    .fromTo(`.expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
+    .fromTo(`.expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
     .fromTo(`.expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
 
     .addLabel('expanded_frame03_a')
@@ -133,7 +142,7 @@ function expand(mix, timeline) {
     .to('.feature-expanded .mm_personal', 0.5, {opacity: 1})
     .to('.feature-expanded .mm_cta', 0.5, {opacity: 1})
 
-  console.log(`[custom] MyMix: ${mix}`);
+    console.log(`[custom] MyMix: ${mix}`);
 }
 
   // EXPANDED CALLS
