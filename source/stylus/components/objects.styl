@@ -48,20 +48,21 @@
   .postcard
     right -43px
     bottom -25px
-
-  .chopsticks_single--1
-    left 325px
-    transform rotate(-17deg) scale(0.8)
-    bottom 35px + 10px
-  .chopsticks_single--2
-    left 325px
-    transform rotate(-17deg) scale(0.8)
-    bottom 20px + 10px
-
-  .spoon
-    left 420px
-    bottom -40px
-    transform scale(0.8) rotate(-25deg)
+  .chopsticks
+    position absolute
+    left 320px
+    bottom 10px
+    z-index 9
+  & .chopsticks_single--1
+    transform rotate(-15deg) scale(0.8)
+    bottom 10px
+  & .chopsticks_single--2
+    transform rotate(-15deg) scale(0.8)
+    bottom 25px
+  & .spoon
+    bottom -60px
+    left 100px
+    transform scale(0.8) rotate(-20deg)
 
   .coins
     top -100px

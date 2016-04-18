@@ -24,8 +24,9 @@ const expandableObjects = {
   data2 : '.camera',
   calls : '.bluetooth',
   int1 : '.passport',
-  int2 : '.chopsticks',
+  int2 : '.ticket',
   int3 : '.coins',
+  int4 : '.chopsticks',
 }
 
 function setupDom() {
@@ -42,6 +43,7 @@ function setupDom() {
   creative.dom.expandInternational1 = document.querySelector(expandableObjects.int1);
   creative.dom.expandInternational2 = document.querySelector(expandableObjects.int2);
   creative.dom.expandInternational3 = document.querySelector(expandableObjects.int3);
+  creative.dom.expandInternational4 = document.querySelector(expandableObjects.int4);
   creative.dom.animationControls = document.getElementById('animationControls');
 }
 
@@ -76,6 +78,7 @@ function addListeners() {
   creative.dom.expandInternational1.addEventListener('click', function(){onExpandHandler('int');}, false);
   creative.dom.expandInternational2.addEventListener('click', function(){onExpandHandler('int');}, false);
   creative.dom.expandInternational3.addEventListener('click', function(){onExpandHandler('int');}, false);
+  creative.dom.expandInternational4.addEventListener('click', function(){onExpandHandler('int');}, false);
   creative.dom.collapseButton.addEventListener('click', onCollapseClickHandler, false);
   creative.dom.expandedExit.addEventListener('click', exitClickHandler);
   creative.dom.collapsedExit.addEventListener('click', collapsedExitClickHandler);
