@@ -172,6 +172,7 @@ function onExpandHandler(mix){
 
 function exitClickHandler() {
   Enabler.requestCollapse();
+  animation.tlMain.seek('collapse_endFrame').pause();
   Enabler.stopTimer('Panel Expansion');
   Enabler.exit('BackgroundExit');
 }

@@ -102,31 +102,31 @@ const animation = (function() {
   const tlCalls = new TimelineMax({paused: true});
   const tlData = new TimelineMax({paused: true});
   const tlInternational = new TimelineMax({paused: true});
-  let objects;
 
   function expand(mix, timeline) {
+    var objects;
     switch(mix) {
       case 'calls':
-        var objects = ['.feature-expanded .bluetooth'];
+        var objects = '.feature-expanded .bluetooth, .feature-expanded .glasses, .feature-expanded .pen, .feature-expanded .diary, .feature-expanded .coffee';
         break;
       case 'int':
         var objects = '.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks';
         break;
       case 'data':
-        var objects = ['.feature-expanded .headphones, .feature-expanded .camera'];
+        var objects = '.feature-expanded .headphones, .feature-expanded .camera, .feature-expanded .coffee, .feature-expanded .usb';
         break;
     }
     function playExpanded(){
-      TweenLite.set('.feature-expanded', {clearProps:'all'});
+      // TweenLite.set('.feature-expanded', {clearProps:'all'});
       timeline
       .addLabel(`expanded-${mix}`)
-      .set(objects, {opacity: 1})
-      .from('.phone-expanded', 0.5, {x: 100 })
+      .set(objects, {clearProps: 'opacity', opacity: 1})
+      .to('.phone-expanded', 0.5, {x: -100 })
       .to(".phone-expanded .rhombus", 0.5, {
         ease: Power1.easeInOut,
         opacity: 1,
         boxShadow:"0px 0px 5px 5px #E30613",
-        rotation: "+=405deg",
+        rotation: "405deg",
       }, '-=0.5')
       .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
       .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
