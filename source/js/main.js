@@ -104,23 +104,24 @@ const animation = (function() {
   const tlInternational = new TimelineMax({paused: true});
 
   function expand(mix, timeline) {
-    var objects;
-    switch(mix) {
-      case 'calls':
-        var objects = '.feature-expanded .bluetooth, .feature-expanded .glasses, .feature-expanded .pen, .feature-expanded .diary, .feature-expanded .coffee';
-        break;
-      case 'int':
-        var objects = '.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks';
-        break;
-      case 'data':
-        var objects = '.feature-expanded .headphones, .feature-expanded .camera, .feature-expanded .coffee, .feature-expanded .usb';
-        break;
-    }
+    var objects = [];
     function playExpanded(){
-      // TweenLite.set('.feature-expanded', {clearProps:'all'});
+      switch(mix) {
+        case 'calls':
+        var objects = ['.feature-expanded .bluetooth, .feature-expanded .glasses, .feature-expanded .pen, .feature-expanded .diary, .feature-expanded .coffee'];
+        break;
+        case 'int':
+        var objects = ['.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks'];
+        break;
+        case 'data':
+        var objects = ['.feature-expanded .headphones, .feature-expanded .camera, .feature-expanded .coffee, .feature-expanded .usb'];
+        break;
+      }
       timeline
       .addLabel(`expanded-${mix}`)
-      .set(objects, {clearProps: 'opacity', opacity: 1})
+      // set all direct children of objects to opacity 0 on each run (tl.clear() doesn't seem to work)
+      .set('.feature-expanded .objects > *', {opacity: 0})
+      .set(objects, {opacity: 1})
       .to('.phone-expanded', 0.5, {x: -100 })
       .to(".phone-expanded .rhombus", 0.5, {
         ease: Power1.easeInOut,
