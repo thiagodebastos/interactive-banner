@@ -143,28 +143,29 @@ function onExpandHandler(mix){
     case 'calls':
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
-      expandedAnimation.playCalls();
+      animation.playCalls();
       break;
     case 'data':
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
-      expandedAnimation.playData();
+      animation.playData();
       break;
     case 'int':
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
-      expandedAnimation.playInt();
+      animation.playInt();
       break;
   }
 }
 
-function exitClickHandler(tl) {
+function exitClickHandler() {
   Enabler.requestCollapse();
   Enabler.stopTimer('Panel Expansion');
   Enabler.exit('BackgroundExit');
 }
 
 function collapsedExitClickHandler() {
+  animation.tlMain.seek('collapse_endFrame').pause();
   Enabler.exit('CollapsedExit');
 }
 

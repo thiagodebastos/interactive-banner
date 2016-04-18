@@ -95,15 +95,10 @@ const animation = (function() {
     console.log(`[custom] loop duration: ${tl.duration()}s`);
     console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
-    return tl;
+    // return tl;
   } // end playMain
 
-  return {
-    playMain : playMain,
-  }
-})();
 
-const expandedAnimation = (function(){
   const tlCalls = new TimelineMax({paused: true});
   const tlData = new TimelineMax({paused: true});
   const tlInternational = new TimelineMax({paused: true});
@@ -121,7 +116,7 @@ const expandedAnimation = (function(){
         var objects = ['.feature-expanded .headphones, .feature-expanded .camera'];
         break;
     }
-    function play(){
+    function playExpanded(){
       timeline
       .addLabel(`expanded-${mix}`)
       .set(objects, {opacity: 1})
@@ -150,10 +145,15 @@ const expandedAnimation = (function(){
 
       console.log(`[custom] MyMix: ${mix} - Objects: ${objects}`);
     }
-    return play;
+    return playExpanded;
   }
 
   return {
+    tlMain : tl,
+    tlCalls : tlCalls,
+    tlData : tlData,
+    tlInternational : tlInternational,
+    playMain : playMain,
     playCalls : expand('calls', tlCalls),
     playData : expand('data', tlData),
     playInt : expand('int', tlInternational),
