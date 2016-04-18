@@ -131,9 +131,9 @@ const animation = (function() {
       .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
       .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1})
 
-      .fromTo(`.expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
-      .fromTo(`.expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
-      .fromTo(`.expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
+      .fromTo(`.feature-expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
+      .fromTo(`.feature-expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
+      .fromTo(`.feature-expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
 
       .addLabel('expanded_frame03_a')
       .to('.feature-expanded>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})

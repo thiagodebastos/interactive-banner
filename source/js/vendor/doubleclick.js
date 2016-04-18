@@ -107,6 +107,7 @@ function expandStartHandler() {
   creative.dom.mainContainer.style.height = '500px';
   creative.dom.collapsedContent.style.display = 'none';
   creative.dom.collapsedExit.style.display = 'none';
+  animation.tlMain.pause();
   Enabler.finishExpand();
 }
 
@@ -130,6 +131,7 @@ function collapseStartHandler() {
 
 function collapseFinishHandler() {
   creative.isExpanded = false;
+  animation.tlMain.resume();
   creative.dom.animationControls.style.top= "250px";
 }
 
@@ -144,16 +146,19 @@ function onExpandHandler(mix){
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
       animation.playCalls();
+      animation.tlCalls.restart();
       break;
     case 'data':
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
       animation.playData();
+      animation.tlData.restart();
       break;
     case 'int':
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
       animation.playInt();
+      animation.tlInternational.restart();
       break;
   }
 }
