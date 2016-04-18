@@ -143,17 +143,17 @@ function onExpandHandler(mix){
     case 'calls':
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
-      animation.playCalls;
+      expandedAnimation.playCalls();
       break;
     case 'data':
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
-      animation.playData;
+      expandedAnimation.playData();
       break;
     case 'int':
       Enabler.requestExpand();
       Enabler.startTimer('Panel Expansion');
-      animation.playInt;
+      expandedAnimation.playInt();
       break;
   }
 }

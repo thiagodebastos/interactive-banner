@@ -2,7 +2,7 @@
 const animation = (function() {
 
   const timelineProgress = (position) => {
-      console.log(`[custom] animation ${position}`);
+    console.log(`[custom] animation ${position}`);
   }
 
   const tl = new TimelineMax(
@@ -17,10 +17,6 @@ const animation = (function() {
     }
   );
 
-  // Declare timelines to export as params in ControlModule
-  const tlCalls = new TimelineMax({paused: true});
-  const tlData = new TimelineMax({paused: true});
-  const tlInternational = new TimelineMax({paused: true});
     // TODO: fix CONTROL MODULE FUNCTIOn
   // ControlModule(tl);
   const timeBetweenFrames = "+=2";
@@ -94,68 +90,72 @@ const animation = (function() {
     .to('.collapsed .mm_personal', 0.5, {opacity: 1})
     .to('.collapsed .mm_cta', 0.5, {opacity: 1})
 
-
     .addLabel("collapse_endFrame")
 
     console.log(`[custom] loop duration: ${tl.duration()}s`);
     console.log(`[custom] total duration: ${tl.totalDuration()}s`);
 
     return tl;
-  }
-var objects;
-
-const expand = function(mix, timeline) {
-  switch(mix) {
-    case 'calls':
-      var objects = ['.feature-expanded .bluetooth'];
-      break;
-    case 'int':
-      var objects = '.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks';
-      break;
-    case 'data':
-      var objects = ['.feature-expanded .headphones, .feature-expanded .camera'];
-      break;
-  }
-
-  timeline
-    .addLabel(`expanded-${mix}`)
-    .set(objects, {opacity: 1})
-    .from('.phone-expanded', 0.5, {x: 100 })
-    .to(".phone-expanded .rhombus", 0.5, {
-      ease: Power1.easeInOut,
-      opacity: 1,
-      boxShadow:"0px 0px 5px 5px #E30613",
-      rotation: "+=405deg",
-    }, '-=0.5')
-    .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
-    .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
-    .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1})
-
-    .fromTo(`.expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
-    .fromTo(`.expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
-    .fromTo(`.expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
-
-    .addLabel('expanded_frame03_a')
-    .to('.feature-expanded>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
-    .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
-    .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a')
-    .to('.feature-expanded .mask', 0.5, {opacity: 1}, '-=0.5')
-    .to('.feature-expanded .mm_personal', 0.5, {opacity: 1})
-    .to('.feature-expanded .mm_cta', 0.5, {opacity: 1})
-
-    console.log(`[custom] MyMix: ${mix}`);
-}
-  const playCalls = expand('calls', tlCalls);
-  const playData = expand('data', tlData);
-  const playInt = expand('int', tlInternational);
+  } // end playMain
 
   return {
     playMain : playMain,
-    // playCalls : playCalls,
-    // playData : playData,
-    // playInt : playInt,
-  };
+  }
+})();
 
-  // tl.seek("expanded-calls+=2.5")
-  // .pause();
+const expandedAnimation = (function(){
+  const tlCalls = new TimelineMax({paused: true});
+  const tlData = new TimelineMax({paused: true});
+  const tlInternational = new TimelineMax({paused: true});
+  let objects;
+
+  function expand(mix, timeline) {
+    switch(mix) {
+      case 'calls':
+        var objects = ['.feature-expanded .bluetooth'];
+        break;
+      case 'int':
+        var objects = '.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks';
+        break;
+      case 'data':
+        var objects = ['.feature-expanded .headphones, .feature-expanded .camera'];
+        break;
+    }
+    function play(){
+      timeline
+      .addLabel(`expanded-${mix}`)
+      .set(objects, {opacity: 1})
+      .from('.phone-expanded', 0.5, {x: 100 })
+      .to(".phone-expanded .rhombus", 0.5, {
+        ease: Power1.easeInOut,
+        opacity: 1,
+        boxShadow:"0px 0px 5px 5px #E30613",
+        rotation: "+=405deg",
+      }, '-=0.5')
+      .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+      .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
+      .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1})
+
+      .fromTo(`.expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
+      .fromTo(`.expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
+      .fromTo(`.expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
+
+      .addLabel('expanded_frame03_a')
+      .to('.feature-expanded>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
+      .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
+      .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a')
+      .to('.feature-expanded .mask', 0.5, {opacity: 1}, '-=0.5')
+      .to('.feature-expanded .mm_personal', 0.5, {opacity: 1})
+      .to('.feature-expanded .mm_cta', 0.5, {opacity: 1})
+
+      console.log(`[custom] MyMix: ${mix} - Objects: ${objects}`);
+    }
+    return play;
+  }
+
+  return {
+    playCalls : expand('calls', tlCalls),
+    playData : expand('data', tlData),
+    playInt : expand('int', tlInternational),
+  }
 })();
