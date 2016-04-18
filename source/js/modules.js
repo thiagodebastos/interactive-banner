@@ -24,9 +24,6 @@ function ControlModule (tl) {
   listen(resume_btn, resumeHandler);
   listen(reverse_btn, reverseHandler);
   listen(restart_btn, restartHandler);
-  // listen(expData, expandHandlerData);
-  // listen(expCalls, expandHandlerCalls);
-  // listen(expInt, expandHandlerInternational);
   listen(colBtn, collapseHandler);
 
 
@@ -36,13 +33,5 @@ function ControlModule (tl) {
   function resumeHandler(){ tl.resume();}
   function reverseHandler(){ tl.reverse();}
   function restartHandler(){ tl.restart();}
-  // function expandHandlerData(){ tlData.restart(); tl.pause(); console.log('Data Expand');}
-  // function expandHandlerCalls(){ tlCalls.restart(); tl.pause();}
-  // function expandHandlerInternational(){ tlInternational.restart(); tl.pause();}
-  // function collapseHandler(){ tlCalls.stop(); tlData.stop(); tlInternational.stop(); tl.resume();}
 
-  // HACK: skip to end frame and pause. For some reason I could not reach TweenMax from doubleclick.js
-  // function skipToEnd(){ tl.seek("collapse_endFrame").pause();}
-  // const expandExit = document.getElementById("expanded-exit");
-  // listen(expandExit, skipToEnd);
 }
