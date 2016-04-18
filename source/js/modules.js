@@ -1,5 +1,5 @@
 // ANIMATION CONTROLS MODULE
-function ControlModule (tl, tlCalls, tlData, tlInternational) {
+function ControlModule (tl) {
   const listen = (el, handler) => el.addEventListener("click", handler);
   const animationControls = document.getElementById("animationControls");
   const btnTypes = ['play', 'pause', 'resume', 'reverse', 'restart'];
@@ -25,7 +25,7 @@ function ControlModule (tl, tlCalls, tlData, tlInternational) {
   listen(reverse_btn, reverseHandler);
   listen(restart_btn, restartHandler);
   // listen(expData, expandHandlerData);
-  listen(expCalls, expandHandlerCalls);
+  // listen(expCalls, expandHandlerCalls);
   // listen(expInt, expandHandlerInternational);
   listen(colBtn, collapseHandler);
 
@@ -36,12 +36,13 @@ function ControlModule (tl, tlCalls, tlData, tlInternational) {
   function resumeHandler(){ tl.resume();}
   function reverseHandler(){ tl.reverse();}
   function restartHandler(){ tl.restart();}
-  function expandHandlerData(){ tlData.restart(); tl.pause(); console.log('Data Expand');}
-  function expandHandlerCalls(){ tlCalls.restart(); tl.pause();}
-  function expandHandlerInternational(){ tlInternational.restart(); tl.pause();}
-  function collapseHandler(){ tlCalls.stop(); tlData.stop(); tlInternational.stop(); tl.resume();}
+  // function expandHandlerData(){ tlData.restart(); tl.pause(); console.log('Data Expand');}
+  // function expandHandlerCalls(){ tlCalls.restart(); tl.pause();}
+  // function expandHandlerInternational(){ tlInternational.restart(); tl.pause();}
+  // function collapseHandler(){ tlCalls.stop(); tlData.stop(); tlInternational.stop(); tl.resume();}
+
   // HACK: skip to end frame and pause. For some reason I could not reach TweenMax from doubleclick.js
-  function skipToEnd(){ tl.seek("collapse_endFrame").pause();}
-  const banner = document.getElementById("expanded-exit");
-  listen(banner, skipToEnd);
+  // function skipToEnd(){ tl.seek("collapse_endFrame").pause();}
+  // const expandExit = document.getElementById("expanded-exit");
+  // listen(expandExit, skipToEnd);
 }

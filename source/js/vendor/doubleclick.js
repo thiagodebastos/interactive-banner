@@ -70,12 +70,12 @@ function addListeners() {
   Enabler.addEventListener(studio.events.StudioEvent.EXPAND_FINISH, expandFinishHandler);
   Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_START, collapseStartHandler);
   Enabler.addEventListener(studio.events.StudioEvent.COLLAPSE_FINISH, collapseFinishHandler);
-  creative.dom.expandCalls.addEventListener('click', onExpandHandler, false);
-  creative.dom.expandData1.addEventListener('click', onExpandHandler, false);
-  creative.dom.expandData2.addEventListener('click', onExpandHandler, false);
-  creative.dom.expandInternational1.addEventListener('click', onExpandHandler, false);
-  creative.dom.expandInternational2.addEventListener('click', onExpandHandler, false);
-  creative.dom.expandInternational3.addEventListener('click', onExpandHandler, false);
+  creative.dom.expandCalls.addEventListener('click', function(){onExpandHandler('calls');}, false);
+  creative.dom.expandData1.addEventListener('click', function(){onExpandHandler('data');}, false);
+  creative.dom.expandData2.addEventListener('click', function(){onExpandHandler('data');}, false);
+  creative.dom.expandInternational1.addEventListener('click', function(){onExpandHandler('int');}, false);
+  creative.dom.expandInternational2.addEventListener('click', function(){onExpandHandler('int');}, false);
+  creative.dom.expandInternational3.addEventListener('click', function(){onExpandHandler('int');}, false);
   creative.dom.collapseButton.addEventListener('click', onCollapseClickHandler, false);
   creative.dom.expandedExit.addEventListener('click', exitClickHandler);
   creative.dom.collapsedExit.addEventListener('click', collapsedExitClickHandler);
@@ -90,7 +90,7 @@ function show() {
   creative.dom.collapseButton.style.display = 'none';
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
-  animation();
+  animation.playMain();
 }
 
 // ---------------------------------------------------------------------------------
@@ -124,7 +124,6 @@ function collapseStartHandler() {
   creative.dom.mainContainer.style.height = '250px';
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
-
   // When animation finished must call
   Enabler.finishCollapse();
 }
@@ -139,12 +138,27 @@ function onCollapseClickHandler(){
   Enabler.stopTimer('Panel Expansion');
 }
 
-function onExpandHandler(){
-  Enabler.requestExpand();
-  Enabler.startTimer('Panel Expansion');
+function onExpandHandler(mix){
+  switch (mix) {
+    case 'calls':
+      Enabler.requestExpand();
+      Enabler.startTimer('Panel Expansion');
+      animation.playCalls;
+      break;
+    case 'data':
+      Enabler.requestExpand();
+      Enabler.startTimer('Panel Expansion');
+      animation.playData;
+      break;
+    case 'int':
+      Enabler.requestExpand();
+      Enabler.startTimer('Panel Expansion');
+      animation.playInt;
+      break;
+  }
 }
 
-function exitClickHandler() {
+function exitClickHandler(tl) {
   Enabler.requestCollapse();
   Enabler.stopTimer('Panel Expansion');
   Enabler.exit('BackgroundExit');
