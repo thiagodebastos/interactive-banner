@@ -131,6 +131,13 @@ function collapseStartHandler() {
 
 function collapseFinishHandler() {
   creative.isExpanded = false;
+  // pause and clear all expanded timelines
+  animation.tlCalls.pause(0);
+  animation.tlCalls.clear();
+  animation.tlData.pause(0);
+  animation.tlData.clear();
+  animation.tlInternational.pause(0);
+  animation.tlInternational.clear();
   animation.tlMain.resume();
   creative.dom.animationControls.style.top= "250px";
 }

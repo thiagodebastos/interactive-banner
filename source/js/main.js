@@ -117,6 +117,7 @@ const animation = (function() {
         break;
     }
     function playExpanded(){
+      TweenLite.set('.feature-expanded', {clearProps:'all'});
       timeline
       .addLabel(`expanded-${mix}`)
       .set(objects, {opacity: 1})
