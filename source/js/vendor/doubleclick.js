@@ -94,6 +94,7 @@ function show() {
   creative.dom.collapsedContent.style.display = 'block';
   creative.dom.collapsedExit.style.display = 'block';
   animation.playMain();
+  ControlModule();
 }
 
 // ---------------------------------------------------------------------------------
