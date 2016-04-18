@@ -7,7 +7,6 @@ BANNER DEFAULTS
   height: 250px;
   top: 0px;
   left: 0px;
-  border: 1px solid black;
   box-sizing: border-box;
   background: #EEE;
 }
@@ -20,7 +19,7 @@ BANNER DEFAULTS
   z-index: 100;
   cursor: pointer;
   overflow hidden
-  // text-align: center;
+  border: 1px solid black;
   box-sizing: border-box;
 }
 
@@ -76,35 +75,6 @@ BANNER DEFAULTS
   font-size: 10pt;
 }
 
-.expand-buttons
-  height 30px
-  position absolute
-  bottom 0
-  right 0
-  z-index 2000
-
-#expand-calls, #expand-data, #expand-int {
-  // border-width: 1px 0 0 1px;
-  // display: none;
-  opacity 0
-  right 0
-  width 95px
-  color: black;
-  background-color: whitesmoke;
-  box-shadow: 0px 10px 30px -1px rgba(0,0,0,0.75);
-  border-radius 6px 0 0 6px
-}
-#expand-data
-  bottom 65px
-  border-width 0
-#expand-calls
-  bottom 35px
-  border-width 0
-#expand-int
-  bottom 1
-  border-width 0
-
-
 #collapse-button {
   color: #FFF;
   background-color: vfred;
@@ -139,6 +109,7 @@ BANNER DEFAULTS
   width: 970px;
   height: 500px;
   position: absolute;
+  border: 1px solid black;
 }
 
 :focus {
