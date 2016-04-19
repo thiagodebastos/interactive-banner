@@ -16,44 +16,44 @@ const animation = (function() {
       onCompleteParams:["end"],
     }
   );
+  const tlPulses = new TimelineMax({repeat:-1});
 
-    // TODO: fix CONTROL MODULE FUNCTIOn
-  // ControlModule(tl);
   const timeBetweenFrames = "+=2";
 
   const objectInteractionWiggles = [
-    '.feature-collapsed .headphones',
-    '.feature-collapsed .passport',
-    '.feature-collapsed .ticket',
-    '.feature-collapsed .coins',
-    '.feature-collapsed .bluetooth',
-    '.feature-collapsed .chopsticks',
-    '.feature-collapsed .spoon',
-    '.feature-collapsed .camera',
+    '.feature-collapsed .objects .headphones',
+    '.feature-collapsed .objects .passport',
+    '.feature-collapsed .objects .ticket',
+    '.feature-collapsed .objects .coins',
+    '.feature-collapsed .objects .bluetooth',
+    '.feature-collapsed .objects .chopsticks',
+    '.feature-collapsed .objects .spoon',
+    '.feature-collapsed .objects .camera',
   ];
-
   function playMain() {
+    // tlPulses.to('.pulse', 1, {boxShadow: '0px 0px 0px 20px rgba(227, 6, 19, 0.0)'});
     tl.addLabel("objectsPop")
     // make objects clickable
     .set('.objects', {opacity: 1})
     // pop all objects into frame
     .set(objectInteractionWiggles, {zIndex: 11})
     .set('#collapsed-exit', {zIndex: 0})
-    .from('.feature-collapsed .headphones, .feature-collapsed .passport, .feature-collapsed .ticket, .feature-collapsed .coins', 0.5, {y:-150, rotation:-45}, "objectsPop")
-    .from('.feature-collapsed .coffee', 0.5, {x:-150, rotation:-45}, "objectsPop")
-    .from('.feature-collapsed .bluetooth', 0.5, {x:150, rotation:-45}, "objectsPop")
-    .from('.feature-collapsed .postcard', 0.5, {x:150, y:100, rotation:-45}, "objectsPop")
-    .from('.feature-collapsed .camera', 0.5, {y:150, rotation:-45}, "objectsPop")
-    .from('.feature-collapsed .chopsticks_single--1', 0.5, {y:150, rotation:-45}, "objectsPop")
-    .from('.feature-collapsed .chopsticks_single--2', 0.5, {y:150, rotation:-65}, "objectsPop")
-    .from('.feature-collapsed .spoon', 0.5, {y:150, rotation:75}, "objectsPop")
+    .from('.feature-collapsed .objects .headphones, .feature-collapsed .objects .passport, .feature-collapsed .objects .ticket, .feature-collapsed .objects .coins', 0.5, {y:-150, rotation:-45}, "objectsPop")
+    .from('.feature-collapsed .objects .coffee', 0.5, {x:-150, rotation:-45}, "objectsPop")
+    .from('.feature-collapsed .objects .bluetooth', 0.5, {x:150, rotation:-45}, "objectsPop")
+    .from('.feature-collapsed .objects .postcard', 0.5, {x:150, y:100, rotation:-45}, "objectsPop")
+    .from('.feature-collapsed .objects .camera', 0.5, {y:150, rotation:-45}, "objectsPop")
+    .from('.feature-collapsed .objects .chopsticks_single--1', 0.5, {y:150, rotation:-45}, "objectsPop")
+    .from('.feature-collapsed .objects .chopsticks_single--2', 0.5, {y:150, rotation:-65}, "objectsPop")
+    .from('.feature-collapsed .objects .spoon', 0.5, {y:150, rotation:75}, "objectsPop")
 
     .to('.collapsed .f1_c1', 0.5, {opacity: 1})
-
+    // .to('.pulses', 0.5, {opacity: 1})
+    .staggerTo('.pulse', 1, {boxShadow: '0px 0px 0px 20px rgba(227, 6, 19, 0.0)', repeat: 3}, 0.5)
     // pause and await user interaction
     .addLabel('waitForUser')
-    .to(objectInteractionWiggles,0.5,{rotation:'-=1', repeat: 3, yoyo: true})
-    .to('.collapsed .f1_c1', 0.5, {opacity: 0}, '+=1')
+    // .to(objectInteractionWiggles,0.5,{rotation:'-=1', repeat: 3, yoyo: true})
+    .to('.collapsed .f1_c1', 0.5, {opacity: 0}, '+=4')
 
     .addLabel("collapsed_frame02")
     .to('.collapsed .f2_c1', 0.5, {opacity: 1})
@@ -78,6 +78,7 @@ const animation = (function() {
 
     // make objects unclickable
     .set(objectInteractionWiggles, {zIndex: 9})
+    .to('.pulses', 0.5, {opacity: 0})
     .set('#collapsed-exit', {zIndex: 400})
 
     .addLabel("collapsed_frame03")
