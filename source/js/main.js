@@ -31,7 +31,6 @@ const animation = (function() {
     '.feature-collapsed .objects .camera',
   ];
   function playMain() {
-    // tlPulses.to('.pulse', 1, {boxShadow: '0px 0px 0px 20px rgba(227, 6, 19, 0.0)'});
     tl.addLabel("objectsPop")
     // make objects clickable
     .set('.objects', {opacity: 1})
@@ -48,12 +47,12 @@ const animation = (function() {
     .from('.feature-collapsed .objects .spoon', 0.5, {y:150, rotation:75}, "objectsPop")
 
     .to('.collapsed .f1_c1', 0.5, {opacity: 1})
-    // .to('.pulses', 0.5, {opacity: 1})
-    .staggerTo('.pulse', 1, {boxShadow: '0px 0px 0px 20px rgba(227, 6, 19, 0.0)', repeat: 3}, 0.5)
+    .to('.pulses', 0.5, {opacity: 1})
     // pause and await user interaction
     .addLabel('waitForUser')
     // .to(objectInteractionWiggles,0.5,{rotation:'-=1', repeat: 3, yoyo: true})
-    .to('.collapsed .f1_c1', 0.5, {opacity: 0}, '+=4')
+    .staggerTo('.pulse', 1, {boxShadow: '0px 0px 0px 20px rgba(227, 6, 19, 0.0)', repeat: 6}, 0.5)
+    .to('.collapsed .f1_c1', 0.5, {opacity: 0}, '-=1')
 
     .addLabel("collapsed_frame02")
     .to('.collapsed .f2_c1', 0.5, {opacity: 1})
