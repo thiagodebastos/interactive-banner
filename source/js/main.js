@@ -61,16 +61,20 @@ const animation = (function() {
 
     // phone slides up
     .to(".phone-collapsed", 0.5, {top: -5}, "+=0.5")
-    .to(".phone-collapsed .rhombus", 0.5, {
-      ease: Power1.easeInOut,
-      opacity: 1,
-      boxShadow:"0px 0px 5px 5px #E30613",
-      rotation: "+=450deg",
-    })
-    .to('.phone-collapsed .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
-    .to('.phone-collapsed .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
-    .to('.phone-collapsed .vf_logo', 0.25, {opacity: 0}, "+=0.5")
-    .to('.phone-collapsed .mask .mm_results', 0.5, {opacity: 1})
+    // NOTE: REPLACED RHOMBUS WITH HOLDING SCREEN
+    // .to(".phone-collapsed .rhombus", 0.5, {
+    //   ease: Power1.easeInOut,
+    //   opacity: 1,
+    //   boxShadow:"0px 0px 5px 5px #E30613",
+    //   rotation: "+=450deg",
+    // })
+    // .to('.phone-collapsed .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+    // .to('.phone-collapsed .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
+    // .to('.phone-collapsed .vf_logo', 0.25, {opacity: 0}, "+=0.5")
+    // .to('.phone-collapsed .mask .mm_results', 0.5, {opacity: 1})
+    .to('.phone-expanded .mask .mm_placeholder', 0.5, {opacity: 1})
+    .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1}, "+=1.75")
+
 
     .to('.collapsed .f2_c1', 0.5, {opacity: 0})
 
@@ -111,7 +115,7 @@ const animation = (function() {
         var objects = ['.feature-expanded .bluetooth, .feature-expanded .glasses, .feature-expanded .pen, .feature-expanded .diary, .feature-expanded .coffee'];
         break;
         case 'int':
-        var objects = ['.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks'];
+        var objects = ['.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks, .feature-expanded .postcard, .feature-expanded .ticket'];
         break;
         case 'data':
         var objects = ['.feature-expanded .headphones, .feature-expanded .camera, .feature-expanded .coffee, .feature-expanded .usb'];
@@ -123,15 +127,19 @@ const animation = (function() {
       .set('.feature-expanded .objects > *', {opacity: 0})
       .set(objects, {opacity: 1})
       .to('.phone-expanded', 0.5, {x: -100 })
-      .to(".phone-expanded .rhombus", 0.5, {
-        ease: Power1.easeInOut,
-        opacity: 1,
-        boxShadow:"0px 0px 5px 5px #E30613",
-        rotation: "405deg",
-      }, '-=0.5')
-      .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
-      .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
-      .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1})
+
+      // NOTE: REPLACED RHOMBUS WITH HOLDING SCREEN
+      // .to(".phone-expanded .rhombus", 0.5, {
+      //   ease: Power1.easeInOut,
+      //   opacity: 1,
+      //   boxShadow:"0px 0px 5px 5px #E30613",
+      //   rotation: "405deg",
+      // }, '-=0.5')
+      // .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+      // .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'})
+      .to('.phone-expanded .mask .mm_placeholder', 0.5, {opacity: 1})
+
+      .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1}, "+=1.75")
 
       .fromTo(`.feature-expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
       .fromTo(`.feature-expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
