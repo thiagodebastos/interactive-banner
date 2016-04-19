@@ -15,6 +15,8 @@ div[class^='phone']
   left 730px
   transform scale(0.68) rotate(5deg)
   z-index 10
+  & .placeholder
+    opacity 1
 .phone-collapsed,
 .phone-expanded
   & .vf_logo
@@ -28,7 +30,7 @@ div[class^='phone']
     left 67px
     transform scale(1)
     z-index 12
-  & .mm_results, .mm_placeholder
+  & img[class^='mm_results'], .mm_placeholder
     position absolute
     left 0
     opacity 0

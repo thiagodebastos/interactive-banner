@@ -60,6 +60,7 @@ const animation = (function() {
 
 
     // phone slides up
+    .set('.phone-collapsed .mask .mm_placeholder', {opacity: 1})
     .to(".phone-collapsed", 0.5, {top: -5}, "+=0.5")
     // NOTE: REPLACED RHOMBUS WITH HOLDING SCREEN
     // .to(".phone-collapsed .rhombus", 0.5, {
@@ -72,9 +73,6 @@ const animation = (function() {
     // .to('.phone-collapsed .mask', 0.5, {backgroundColor: '#E30613'}, '+=0.5')
     // .to('.phone-collapsed .vf_logo', 0.25, {opacity: 0}, "+=0.5")
     // .to('.phone-collapsed .mask .mm_results', 0.5, {opacity: 1})
-    .to('.phone-expanded .mask .mm_placeholder', 0.5, {opacity: 1})
-    .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1}, "+=1.75")
-
 
     .to('.collapsed .f2_c1', 0.5, {opacity: 0})
 
@@ -85,6 +83,8 @@ const animation = (function() {
     .addLabel("collapsed_frame03")
     .to('.collapsed .f3_c1', 0.5, {opacity: 1})
     .to('.will-zoom', 0.5, {scale: 1.25, x: -90, y:-5})
+    .to('.phone-collapsed .mask .mm_results_data', 0.5, {opacity: 1}, '-=0.5')
+    .to('.collapsed .vf_tcs', 0.5, {opacity: 1})
     .to('.collapsed .f3_c1', 0.5, {opacity: 0}, "+=2")
     .addLabel('collapsed_frame03_a')
     .to('.feature-collapsed>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
@@ -139,10 +139,9 @@ const animation = (function() {
       // .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'})
       .to('.phone-expanded .mask .mm_placeholder', 0.5, {opacity: 1})
 
-      .to('.phone-expanded .mask .mm_results', 0.5, {opacity: 1}, "+=1.75")
-
       .fromTo(`.feature-expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
       .fromTo(`.feature-expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
+      .to(`.phone-expanded .mask .mm_results_${mix}`, 0.5, {opacity: 1}, `expanded-${mix}+=4`)
       .fromTo(`.feature-expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
 
       .addLabel('expanded_frame03_a')
