@@ -27,6 +27,7 @@ const expandableObjects = {
   int2 : '.ticket',
   int3 : '.coins',
   int4 : '.chopsticks',
+  int5 : '.postcard',
 }
 
 function setupDom() {
@@ -44,6 +45,7 @@ function setupDom() {
   creative.dom.expandInternational2 = document.querySelector(expandableObjects.int2);
   creative.dom.expandInternational3 = document.querySelector(expandableObjects.int3);
   creative.dom.expandInternational4 = document.querySelector(expandableObjects.int4);
+  creative.dom.expandInternational5 = document.querySelector(expandableObjects.int5);
   creative.dom.animationControls = document.getElementById('animationControls');
 }
 
@@ -79,6 +81,7 @@ function addListeners() {
   creative.dom.expandInternational2.addEventListener('click', function(){onExpandHandler('int');}, false);
   creative.dom.expandInternational3.addEventListener('click', function(){onExpandHandler('int');}, false);
   creative.dom.expandInternational4.addEventListener('click', function(){onExpandHandler('int');}, false);
+  creative.dom.expandInternational5.addEventListener('click', function(){onExpandHandler('int');}, false);
   creative.dom.collapseButton.addEventListener('click', onCollapseClickHandler, false);
   creative.dom.expandedExit.addEventListener('click', exitClickHandler);
   creative.dom.collapsedExit.addEventListener('click', collapsedExitClickHandler);

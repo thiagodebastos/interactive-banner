@@ -28,6 +28,7 @@ const animation = (function() {
     '.feature-collapsed .objects .chopsticks',
     '.feature-collapsed .objects .spoon',
     '.feature-collapsed .objects .camera',
+    '.feature-collapsed .objects .postcard',
   ];
   function playMain() {
     tl.addLabel("objectsPop")
