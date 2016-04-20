@@ -77,7 +77,7 @@ const animation = (function() {
 
     // make objects unclickable
     .set(objectInteractionWiggles, {zIndex: 9})
-    .to('.pulses', 0.5, {opacity: 0})
+    .to('.pulses', 0.5, {opacity: 0}, '-=0.5')
     .set('#collapsed-exit', {zIndex: 400})
 
     .addLabel("collapsed_frame03")
