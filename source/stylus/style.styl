@@ -70,46 +70,48 @@ CUSTOM STYLES
     left 455px
   & .pulses
     opacity 0
+    pointer-events none
+    & div[class^='pulse-container']
+      position absolute
+    & .plus
+      position relative
+      left -3px
+      top -10px
+      z-index 20
     & .pulse
-      pointer-events none
       color white
       width 1px
       height 1px
       border-radius 50%
       background rgba(0,0,0,0)
       position absolute
-      box-shadow: 0px 0px 0px 0px rgba(227, 6, 19, 1)
+      box-shadow 0px 0px 0px 0px rgba(227, 6, 19, 1)
       z-index 110
-      & .plus
-        font-size 1.1rem
-        font-weight 800
-        position absolute
-        left -4px
-        top -11px
-      &.data.headphones
-        top 50px
-        left 340px
-      &.data.camera
-        top 215px
-        left 235px
-      &.calls
-        top 115px
-        right 70px
-      &.international.coins
-        top 25px
-        left 160px
-      &.international.chopsticks
-        left 535px
-        bottom 30px
-      &.international.passport
-        top 30px
-        left 580px
-      &.international.postcard
-        top 210px
-        right 40px
-      &.international.ticket
-        top 60px
-        left 790px
+.pulse-container__headphones
+  top 50px
+  left 340px
+&.pulse-container__camera
+  top 215px
+  left 235px
+&.pulse-container__calls
+  top 120px
+  right 70px
+& .pulse-container__coins
+  top 25px
+  left 160px
+& .pulse-container__chopsticks
+  left 535px
+  bottom 14px
+& .pulse-container__passport
+  top 30px
+  left 580px
+& .pulse-container__postcard
+  top 200px
+  right 70px
+& .pulse-container__ticket
+  top 60px
+  left 790px
+
 
 .vf_tagline
   position absolute

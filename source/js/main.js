@@ -1,5 +1,5 @@
 // call animation function below
-const animation = (function() {
+const animation = (() => {
 
   const timelineProgress = (position) => {
     console.log(`[custom] animation ${position}`);
