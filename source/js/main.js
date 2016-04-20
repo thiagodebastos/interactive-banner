@@ -141,7 +141,7 @@ const animation = (function() {
 
       .fromTo(`.feature-expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
       .fromTo(`.feature-expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
-      .to(`.phone-expanded .mask .mm_results_${mix}`, 0.5, {opacity: 1}, `expanded-${mix}+=4`)
+      .to(`.phone-expanded .mask .mm_results_${mix}, .vf_tcs`, 0.5, {opacity: 1}, `expanded-${mix}+=4`)
       .fromTo(`.feature-expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
 
       .addLabel('expanded_frame03_a')
