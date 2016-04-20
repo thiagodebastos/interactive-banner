@@ -120,7 +120,7 @@ const animation = (function() {
         var objects = ['.feature-expanded .passport, .feature-expanded .coins, .feature-expanded .chopsticks, .feature-expanded .postcard, .feature-expanded .ticket'];
         break;
         case 'data':
-        var objects = ['.feature-expanded .headphones, .feature-expanded .camera, .feature-expanded .coffee, .feature-expanded .usb'];
+        var objects = ['.feature-expanded .headphones, .feature-expanded .camera, .feature-expanded .coffee, .feature-expanded .usb, .feature-expanded .popcorn'];
         break;
       }
       timeline
