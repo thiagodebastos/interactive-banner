@@ -1,4 +1,33 @@
 // ANIMATION CONTROLS MODULE
+// ******************************************************
+// NOTE: This module will be injected into
+// <div id="animationControls"></div>
+// It can be used during development and will not cause
+// issues in production as it exists outside of the iframe
+// and will not be rendered.
+//
+// Expanding Banners:
+// If being used with an expanding banner, make sure to
+// set the top property to 500px (or any other height)
+// upon expand.
+//
+// Styling:
+// #animationControls
+//   position relative
+//   top banner_height
+//   width banner_width
+//   height 30px
+//   background white
+//   z-index 10000
+//   text-align center
+//   button
+//     position relative
+//     border none
+//     width 55px
+//     height 30px
+//     background-color white
+// ******************************************************
+
 function ControlModule () {
   const listen = (el, handler) => el.addEventListener("click", handler);
   const animationControls = document.getElementById("animationControls");
