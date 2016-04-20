@@ -16,7 +16,6 @@ const animation = (function() {
       onCompleteParams:["end"],
     }
   );
-  const tlPulses = new TimelineMax({repeat:-1});
 
   const timeBetweenFrames = "+=2";
 
@@ -80,7 +79,7 @@ const animation = (function() {
 
     // make objects unclickable
     .set(objectInteractionWiggles, {zIndex: 9})
-    .to('.pulses', 0.5, {opacity: 0}, '-=0.5')
+    .to('.pulses', 0.5, {opacity: 0}, '-=1')
     .set('#collapsed-exit', {zIndex: 400})
 
     .addLabel("collapsed_frame03")
