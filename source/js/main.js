@@ -91,6 +91,8 @@ const animation = (() => {
     .to('.collapsed .f3_c1', 0.5, {opacity: 0}, "+=2")
     .addLabel('collapsed_frame03_a')
     .to('.feature-collapsed>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
+    .to('.collapsed .vf_tcs', 0.5, {opacity: 0}, '-=0.5')
+    .to('.collapsed .vf_tcs_white', 0.5, {opacity: 1})
     .to('.feature-collapsed .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'collapsed_frame03_a')
     .to('.feature-collapsed .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'collapsed_frame03_a')
     .to('.will-zoom .mask', 0.5, {opacity: 1}, '-=0.5')
@@ -151,6 +153,8 @@ const animation = (() => {
 
       .addLabel('expanded_frame03_a')
       .to('.feature-expanded>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
+      .to('.feature-expanded .vf_tcs', 0.5, {opacity: 0}, '-=0.5')
+      .to('.feature-expanded .vf_tcs_white', 0.5, {opacity: 1})
       .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
       .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a')
       .to('.feature-expanded .mask', 0.5, {opacity: 1}, '-=0.5')
