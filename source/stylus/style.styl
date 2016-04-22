@@ -40,12 +40,13 @@ CUSTOM STYLES
 .feature-collapsed, .feature-expanded
   & > .rhombus
     position absolute
+    opacity 0
     width 900px
-    height 805px
-    left -882px
-    top -162px
+    height 1805px
+    left -739px
+    top 180px
     border-radius 26px
-    transform rotate(-45deg)
+    transform-origin 874px 26px
     background-color vfred
     mix-blend-mode multiply
     z-index 12
@@ -56,6 +57,8 @@ CUSTOM STYLES
 
 .feature-collapsed
   background url('../img/background.jpg')
+  & .vf_logo
+    opacity 0
   & .f1_c1
     left 50%
     transform translate(-50%, -50%)
@@ -117,6 +120,7 @@ CUSTOM STYLES
   position absolute
   left 10px
   top 188px
+  opacity 0
   z-index 15
   & :nth-of-type(2)
     opacity 0
@@ -127,11 +131,20 @@ CUSTOM STYLES
 .vf_tcs_white
   position absolute
   bottom 5px
-  z-index 11
-  opacity 0
   right 5px
-  bottom 5px
+  opacity 0
+  z-index 13
 
+.vf_tcs_bg
+  position absolute
+  right 0px
+  bottom 0px
+  height 25px
+  width 135px
+  padding 2px 2px 15px 2px
+  background black
+  opacity 0
+  z-index 12
 
 .feature-expanded
   background url('../img/background.jpg')

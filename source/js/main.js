@@ -33,10 +33,11 @@ const animation = (() => {
   function playMain() {
     tl.addLabel("objectsPop")
     // make objects clickable
-    .set('.objects', {opacity: 1})
+    .set('.objects, .feature-collapsed>.rhombus, .feature-collapsed .vf_logo, .feature-collapsed .vf_tagline', {opacity: 1})
     // pop all objects into frame
     .set(objectInteractionWiggles, {zIndex: 11})
     .set('#collapsed-exit', {zIndex: 0})
+    .set('.feature-collapsed>.rhombus', {rotation: 45})
     .from('.feature-collapsed .objects .headphones, .feature-collapsed .objects .passport, .feature-collapsed .objects .ticket, .feature-collapsed .objects .coins', 0.5, {y:-150, rotation:-45}, "objectsPop")
     .from('.feature-collapsed .objects .coffee', 0.5, {x:-150, rotation:-45}, "objectsPop")
     .from('.feature-collapsed .objects .bluetooth', 0.5, {x:150, rotation:-45}, "objectsPop")
@@ -87,14 +88,22 @@ const animation = (() => {
     .to('.collapsed .f3_c1', 0.5, {opacity: 1})
     .to('.will-zoom', 0.5, {scale: 1.25, x: -90, y:-5})
     .to('.phone-collapsed .mask .mm_results_data', 0.5, {opacity: 1}, '-=0.5')
-    .to('.collapsed .vf_tcs', 0.5, {opacity: 1})
+    .to('.collapsed .vf_tcs_white, .collapsed .vf_tcs_bg', 0.5, {opacity: 1})
     .to('.collapsed .f3_c1', 0.5, {opacity: 0}, "+=2")
     .addLabel('collapsed_frame03_a')
     .to('.feature-collapsed>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
-    .to('.collapsed .vf_tcs', 0.5, {opacity: 0}, '-=0.5')
-    .to('.collapsed .vf_tcs_white', 0.5, {opacity: 1})
+
+    .to('.feature-collapsed>.rhombus', 0.75, {
+      ease: Power1.easeInOut,
+      opacity: 1,
+      rotation: 405,
+    }, '-=0.5')
+    // .to('.feature-collapsed>.rhombus',0.75,{boxShadow:"0px 0px 10px 10px #E30613"}, '-=0.75')
+
+
+    .to('.collapsed .vf_tcs_bg', 0.5, {opacity: 0}, '-=0.5')
     .to('.feature-collapsed .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'collapsed_frame03_a')
-    .to('.feature-collapsed .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'collapsed_frame03_a')
+    .to('.feature-collapsed .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'collapsed_frame03_a+=0.5')
     .to('.will-zoom .mask', 0.5, {opacity: 1}, '-=0.5')
     .to('.collapsed .mm_personal', 0.5, {opacity: 1})
     .to('.collapsed .mm_cta', 0.5, {opacity: 1})
@@ -103,7 +112,7 @@ const animation = (() => {
 
     console.log(`[custom] loop duration: ${tl.duration()}s`);
     console.log(`[custom] total duration: ${tl.totalDuration()}s`);
-
+    // tl.seek('collapsed_frame03');
   } // end playMain
 
 
@@ -130,6 +139,8 @@ const animation = (() => {
       // set all direct children of objects to opacity 0 on each run (tl.clear() doesn't seem to work)
       .set('.feature-expanded .objects > *', {opacity: 0})
       .set(objects, {opacity: 1})
+      .set('.feature-expanded > .rhombus', {rotation: 45})
+      .set('.feature-expanded > .rhombus, .feature-expanded .vf_logo, .feature-expanded .vf_tagline', {y: 140, x: 20, opacity: 1})
       .to('.phone-expanded', 0.5, {x: -100 })
 
       // ******************************************************
@@ -153,6 +164,9 @@ const animation = (() => {
 
       .addLabel('expanded_frame03_a')
       .to('.feature-expanded>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
+      .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+      .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'})
+
       .to('.feature-expanded .vf_tcs', 0.5, {opacity: 0}, '-=0.5')
       .to('.feature-expanded .vf_tcs_white', 0.5, {opacity: 1})
       .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
