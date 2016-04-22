@@ -164,15 +164,21 @@ const animation = (() => {
 
       .addLabel('expanded_frame03_a')
       .to('.feature-expanded>.rhombus', 0.5, {css:{'mix-blend-mode':"normal", backgroundColor: 'white', opacity: '0.9'}})
-      .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
-      .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'})
+      .to('.feature-expanded>.rhombus', 0.75, {
+        ease: Power1.easeInOut,
+        opacity: 1,
+        rotation: 405,
+      }, '-=0.5')
+      // .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
+      // .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'})
 
       .to('.feature-expanded .vf_tcs_bg', 0.5, {opacity: 0})
       .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
-      .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a')
-      .to('.feature-expanded .mask', 0.5, {opacity: 1}, '-=0.5')
-      .to('.feature-expanded .mm_personal', 0.5, {opacity: 1})
-      .to('.feature-expanded .mm_cta', 0.5, {opacity: 1})
+      .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a+=0.5')
+      .addLabel('expanded_final')
+      .to('.feature-expanded .mask', 0.5, {opacity: 1}, 'expanded_final-=0.75')
+      .to('.feature-expanded .mm_personal', 0.5, {opacity: 1}, 'expanded_final-=0.75')
+      .to('.feature-expanded .mm_cta', 0.5, {opacity: 1}, 'expanded_final-=0.75')
 
       console.log(`[custom] MyMix: ${mix} - Objects: ${objects}`);
     }
