@@ -159,7 +159,7 @@ const animation = (() => {
 
       .fromTo(`.feature-expanded .mm_${mix}_f1_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}`)
       .fromTo(`.feature-expanded .mm_f2_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 2}, `expanded-${mix}+=4`)
-      .to(`.phone-expanded .mask .mm_results_${mix}, .vf_tcs`, 0.5, {opacity: 1}, `expanded-${mix}+=4`)
+      .to(`.phone-expanded .mask .mm_results_${mix}, .feature-expanded .vf_tcs_white, .feature-expanded .vf_tcs_bg`, 0.5, {opacity: 1}, `expanded-${mix}+=4`)
       .fromTo(`.feature-expanded .mm_f3_c1`, 0.5, {opacity: 0}, {opacity: 1, yoyo:true, repeat:1, repeatDelay: 3}, `expanded-${mix}+=7`)
 
       .addLabel('expanded_frame03_a')
@@ -167,8 +167,7 @@ const animation = (() => {
       .to('.phone-expanded .rhombus', 0.5, {boxShadow:"0px 0px 0px 0px #E30613"}, '-=0.25')
       .to('.phone-expanded .mask', 0.5, {backgroundColor: '#E30613'})
 
-      .to('.feature-expanded .vf_tcs', 0.5, {opacity: 0}, '-=0.5')
-      .to('.feature-expanded .vf_tcs_white', 0.5, {opacity: 1})
+      .to('.feature-expanded .vf_tcs_bg', 0.5, {opacity: 0})
       .to('.feature-expanded .vf_tagline>img:nth-of-type(1)', 0.5, {opacity:0}, 'expanded_frame03_a')
       .to('.feature-expanded .vf_tagline>img:nth-of-type(2)', 0.5, {opacity:1}, 'expanded_frame03_a')
       .to('.feature-expanded .mask', 0.5, {opacity: 1}, '-=0.5')
