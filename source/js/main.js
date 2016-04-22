@@ -140,7 +140,7 @@ const animation = (() => {
       .set('.feature-expanded .objects > *', {opacity: 0})
       .set(objects, {opacity: 1})
       .set('.feature-expanded > .rhombus', {rotation: 45})
-      .set('.feature-expanded > .rhombus, .feature-expanded .vf_logo, .feature-expanded .vf_tagline', {y: 140, x: 20, opacity: 1})
+      .set('.feature-expanded > .rhombus, .feature-expanded .vf_logo, .feature-expanded .vf_tagline', {y: 210, x: 20, opacity: 1})
       .to('.phone-expanded', 0.5, {x: -100 })
 
       // ******************************************************
