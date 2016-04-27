@@ -61,7 +61,7 @@ const animation = (() => {
 
     // phone slides up
     .set('.phone-collapsed .mask .mm_placeholder', {opacity: 1})
-    .to(".phone-collapsed", 0.5, {top: -5}, "+=0.5")
+    .to(".phone-collapsed", 0.5, {top: -10}, "+=0.5")
 
     // ******************************************************
     // NOTE: REPLACED RHOMBUS WITH HOLDING SCREEN
