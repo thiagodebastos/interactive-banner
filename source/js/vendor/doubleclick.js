@@ -179,13 +179,19 @@ function onExpandHandler(mix){
 
 function exitClickHandler() {
   Enabler.requestCollapse();
-  animation.tlMain.seek('collapse_endFrame').pause();
+  animation.tlMain.progress(1, false);
   Enabler.stopTimer('Panel Expansion');
   Enabler.exit('BackgroundExit');
 }
 
 function collapsedExitClickHandler() {
-  animation.tlMain.seek('collapse_endFrame').pause();
+  animation.tlMain.progress(1, false);
+  // HACK: the following is hacked on due to an issue with Greensock not setting css attributes
+  // when skipping to end of animation
+  document.querySelector('.feature-collapsed>.rhombus').setAttribute(
+    'style',
+    'mix-blend-mode: normal; background-color: white; opacity: 1; transform: rotate(405deg)'
+  );
   Enabler.exit('CollapsedExit');
 }
 
