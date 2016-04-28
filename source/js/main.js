@@ -48,7 +48,7 @@ const animation = (() => {
     .from('.feature-collapsed .objects .spoon', 0.5, {y:150, rotation:75}, "objectsPop")
 
     .to('.collapsed .f1_c1', 0.5, {opacity: 1})
-    .to('.pulses', 0.5, {opacity: 1})
+    .to('.pulses', 0.5, {autoAlpha: 1})
     // pause and await user interaction
     .addLabel('waitForUser')
     // .to(objectInteractionWiggles,0.5,{rotation:'-=1', repeat: 3, yoyo: true})
@@ -81,7 +81,7 @@ const animation = (() => {
 
     // make objects unclickable
     .set(objectInteractionWiggles, {zIndex: 9})
-    .to('.pulses', 0.5, {opacity: 0}, '-=1')
+    .to('.pulses', 0.5, {autoAlpha: 0}, '-=1')
     .set('#collapsed-exit', {zIndex: 400})
 
     .addLabel("collapsed_frame03")
